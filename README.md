@@ -7,3 +7,4 @@
 # 2 - A web segura - HTTPS
 # 3 - Endereços sob seu domínio
 # 4 - O cliente pede e o servidor responde
+# 5 - Depurando a requisição HTTP
