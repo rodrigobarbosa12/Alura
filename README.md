@@ -8,3 +8,4 @@
 # 3 - Endereços sob seu domínio
 # 4 - O cliente pede e o servidor responde
 # 5 - Depurando a requisição HTTP
+# 6 -  Parâmetros da requisição 
