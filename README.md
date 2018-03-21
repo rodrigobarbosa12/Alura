@@ -10,3 +10,4 @@
 # 5 - Depurando a requisição HTTP
 # 6 -  Parâmetros da requisição 
 # 7 - Serviços na web com REST
+# 8 - HTTP2 - Por uma web mais eficiente
