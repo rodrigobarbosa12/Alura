@@ -11,3 +11,14 @@
 # 6 -  Parâmetros da requisição 
 # 7 - Serviços na web com REST
 # 8 - HTTP2 - Por uma web mais eficiente
+
+
+
+# Curso PHP e MySQL I: Fundamentos para criar um sistema na Web
+
+#Aulas;
+#1 - Primeiros passos com PHP
+
+
+
+
