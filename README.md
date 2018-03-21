@@ -18,6 +18,7 @@
 
 #Aulas;
 #1 - Primeiros passos com PHP
+#2 - Inserindo produtos no banco de dados
 
 
 
