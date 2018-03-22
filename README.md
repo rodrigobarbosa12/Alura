@@ -21,6 +21,7 @@
 #2 - Inserindo produtos no banco de dados
 #3 - Criando Funções no PHP
 #4 - Listando todos os produtos
+#5 -  Melhorando a listagem de produtos
 
 
 
