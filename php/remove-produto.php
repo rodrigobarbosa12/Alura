@@ -5,8 +5,13 @@ include("bancoProduto.php");
 
 $id = $_POST['id'];
 
-removerProduto($conexao,$id);
+$removeuProduto = removerProduto($conexao,$id);
 
-header("Location: listando.php");
+if($removeuProduto){
+    header("Location: listando.php?removido=true&id=$id");
+    die();
+}
+
+header("Location: listando.php?removido=false");
 die();
 include("rodape.php");?>

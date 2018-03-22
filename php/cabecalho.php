@@ -21,17 +21,6 @@
 </head>   
 <body>
 
-        <?php
-
-            if(!$_POST) return;
-
-    $nome = $_POST['nome'];
-    $preco = $_POST['preco']; 
-    $descricao = $_POST['descricao'];
-    $categoria_id = $_POST['categoria_id'];
-
-            
-            
-        ?>
+        
 
     

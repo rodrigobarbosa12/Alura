@@ -9,7 +9,7 @@ $array = listaProdutos($conexao);
 <?php
 if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
 ?>
-<p class="alert-success">Produto <?=$id?> removido!</p>
+<p class="alert-success">Produto <?=$_GET['id']?> removido!</p>
 
 <?php }
 ?>
