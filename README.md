@@ -23,6 +23,7 @@
 #4 - Listando todos os produtos
 #5 -  Melhorando a listagem de produtos
 #6 - Deletando produtos
+#7 - Entendendo a diferença entre GET e POST
 
 
 
