@@ -4,7 +4,7 @@
 function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id){
      $sql = "INSERT INTO produtos (nome, preco, descricao, categoria_id) 
      VALUES ('$nome', '$preco', '$descricao','$categoria_id')";
-
+    echo $sql;
      $resultado = mysqli_query($conexao, $sql); 
 return $resultado;
             }

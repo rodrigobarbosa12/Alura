@@ -1,6 +1,4 @@
 <?php include("cabecalho.php");
-
-
 include("conexaoBD.php");
 include("bancoProduto.php");
     

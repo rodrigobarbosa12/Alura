@@ -26,15 +26,20 @@
                 <td><input type="submit" name="enviar" value="Registrar"></td>
             </tr>
             <tr>
+
+            <tr>
+                <td><input type="checkbox" name="usado" value="true">Usado</td><!--Ao selecionar, ele recebe o valor TRUE-->
+            </tr>
+
                 <td>Categoria</td>
                 <td>
+                    <select name="categoria_id">
                     <?php 
-                    foreach($categorias as $categoria):?>
+                     foreach($categorias as $categoria):?>
+                     <option value="<?=$categoria['id']#numero ID?>"> <?=$categoria['nome']#nome ID?> </option>
+                    <?php endforeach?>
+                 </select>
 
-                    <input type="radio" name="categoria_id" value="<?=$categoria['id']#numero ID?>">
-                    <?= $categoria['nome']#nome ID?>
-
-                <?php endforeach?>
             </td>
             </tr>
         </table>   
@@ -51,6 +56,12 @@
         $preco = $_POST['preco']; 
         $descricao = $_POST['descricao'];
         $categoria_id = $_POST['categoria_id'];
+        if(array_key_exists('usado', $_POST)){
+            $usado ="true";
+        }else{
+            $usado ="false";
+        }
+
     ?>
 
 
