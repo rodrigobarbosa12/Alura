@@ -27,6 +27,7 @@
 #8 - Relacionando Produtos com Categorias
 #9 - Lidando com Selects e Checkboxes
 #10 - Alterando produtos
+#11 - Subindo a aplicação para um Servidor
 
 
 
