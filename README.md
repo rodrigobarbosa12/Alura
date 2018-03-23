@@ -26,6 +26,7 @@
 #7 - Entendendo a diferença entre GET e POST
 #8 - Relacionando Produtos com Categorias
 #9 - Lidando com Selects e Checkboxes
+#10 - Alterando produtos
 
 
 
