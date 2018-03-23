@@ -1,4 +1,5 @@
-<?php include("cabecalho.php");
+<?php 
+include("cabecalho.php");
 include("conexaoBD.php");
 include("bancoProduto.php");
     
@@ -20,7 +21,8 @@ if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
         <td><?= $produto['preco'] ?></td>
         <td><?= substr($produto['descricao'], 0,40)#A funcção substr recebe a string e a quantidade de string ?></td>
        <td><?=$produto['categoria_nome'] #categoria_nome esta vinculada a junção das tabelas?></td>
-
+       
+       <td><a class="btn btn-primary" href="#" >Alterar</a></td>
 
         <form action="remove-produto.php" method="post">
             <input type="hidden" name="id" value="<?=$produto['id']#exclui o produto do id?>" /> 

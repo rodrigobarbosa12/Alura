@@ -8,7 +8,7 @@
 ?>
 
     <div id="prim">
-     <form method="POST" >
+     <form action="alertaProduto.php" method="post" >
         <table class="table">  
             <tr>
                 <td>Nome:</td>
@@ -22,9 +22,7 @@
                 <td>Descrição</td>
                 <td><textarea name="descricao" class="form-control"></textarea></td>
             </tr>
-            <tr>
-                <td><input type="submit" name="enviar" value="Registrar"></td>
-            </tr>
+           
             <tr>
 
             <tr>
@@ -42,42 +40,16 @@
 
             </td>
             </tr>
+            <tr>
+                <td><input type="submit" name="enviar" value="Registrar"></td>
+            </tr>
         </table>   
      </form>
     </div>
 
 
 
-    <?php
-
-    if(!$_POST) return;
     
-        $nome = $_POST['nome'];
-        $preco = $_POST['preco']; 
-        $descricao = $_POST['descricao'];
-        $categoria_id = $_POST['categoria_id'];
-        if(array_key_exists('usado', $_POST)){
-            $usado ="true";
-        }else{
-            $usado ="false";
-        }
 
-    ?>
-
-
-    <div id="segu">
-
-<?php
-    
-    #CHAMADA DA FUNÇÃO insereProduto, COM MENSAGEM DE VERIFICAÇÃO
-    $msg = mysqli_error($conexao);
-    if (insereProduto($conexao, $nome, $preco, $descricao,$categoria_id)){?>
-        <p class="alert-success"> <?php echo"Produto cadastrado";?> </p> 
-    <?php }else {
-        echo"Produto nao cadastrado".$msg;
-    }
-?>
-
-   </div>
  </body>
 </html>
