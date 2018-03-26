@@ -30,6 +30,11 @@
 #11 - Subindo a aplicação para um Servidor
 
 
+# PHP e MySQL II: Cookies, sessões e mais recursos
+
+#Aulas; 
+# - Uma ação de login
+
 
 
 
