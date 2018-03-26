@@ -1,20 +1,27 @@
 <?php 
-
+session_start();
 function usuarioEstaLogado(){
-    return isset(($_COOKIE["usuario_logado"]));#verifica se o usuario esta logado
+    return isset(($_SESSION["usuario_logado"]));#verifica se o usuario esta logado
 }
 
+#se não estiver logado, volta para index.php
 function verificaUsuario(){
-    if(!usuarioEstaLogado()){ #se não estiver logado...
+    if(!usuarioEstaLogado()){
         header("location: index.php?falhaDeSeguranca=true");
         die();
     }
 }
 
+#Guarda as informacoes 
 function usuarioLogado(){
-return $_COOKIE["usuario_logado"];    
+ return $_SESSION["usuario_logado"];    
 }
 
 function logaUsuario($email){
-     setcookie("usuario_logado", email, time()+ 60);
+    $_SESSION["usuario_logado"] = $email; 
+    #setcookie("usuario_logado", email, time()+ 60);
+}
+
+function logout(){
+    session_destroy();
 }

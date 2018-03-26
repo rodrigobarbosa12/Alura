@@ -6,10 +6,18 @@ include("logica-usuario.php");
 
 <?php if(isset($_GET["login"]) && $_GET["login"]== 0) { ?>
     <p class="alert-danger">Usuário ou senha inválida!</p>
+    
 <?php } ?>
 
 <?php if(isset($_GET["login"]) && $_GET["login"]== 1) { ?>  
     <p class="alert-success">Logado com sucesso!</p>
+    
+<?php } ?>
+
+<!-- DESLOGAR  -->
+<?php if(isset($_GET["logout"]) && $_GET["logout"]== true) { ?>  
+    <p class="alert-success">Deslogado com sucesso!</p>
+    
 <?php } ?>
 
 <?php if(isset($_GET["falhaDeSeguranca"])){ ?>
@@ -20,6 +28,7 @@ include("logica-usuario.php");
 
             <?php if(usuarioEstaLogado()){?>
                     <p class="text-success">Você esta logado como <?= usuarioLogado()?> </p>
+                    <p classs="alert-danger"><a href="logout.php">Deslogar</a></p>
                 <?php } else{ ?>
 
 			    <h2>Login</h2>
