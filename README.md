@@ -33,7 +33,8 @@
 # PHP e MySQL II: Cookies, sessões e mais recursos
 
 #Aulas; 
-# - Uma ação de login
+#1 - Uma ação de login
+#2 - Efetuando o login e cookies
 
 
 
