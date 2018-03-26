@@ -30,11 +30,13 @@
 #11 - Subindo a aplicação para um Servidor
 
 
+
 # PHP e MySQL II: Cookies, sessões e mais recursos
 
 #Aulas; 
 #1 - Uma ação de login
 #2 - Efetuando o login e cookies
+#3 -  Protegendo o acesso as páginas, refatorando e extraindo a lógica
 
 
 
