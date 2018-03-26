@@ -36,7 +36,8 @@
 #Aulas; 
 #1 - Uma ação de login
 #2 - Efetuando o login e cookies
-#3 -  Protegendo o acesso as páginas, refatorando e extraindo a lógica
+#3 - Protegendo o acesso as páginas, refatorando e extraindo a lógica
+#4 - Insegurança com cookie, segurança com session e efetuando logout
 
 
 
