@@ -41,6 +41,7 @@
 #5 - Passando parâmetros para a próxima requisição
 #6 - Refatoração, escopo de flash e controle de erro
 #7 - Um único formulário para adicionar e alterar
+#8 - SQL Injection
 
 
 
