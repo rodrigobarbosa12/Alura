@@ -43,6 +43,13 @@
 #7 - Um único formulário para adicionar e alterar
 #8 - SQL Injection
 #9 - Include, require, require_once
+#10 - Envio de email via SMTP
+
+
+# MySQL I: Iniciando suas consultas
+
+#Aulas; 
+#1 - Consultando os dados
 
 
 
