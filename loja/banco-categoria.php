@@ -1,4 +1,4 @@
-<?php
+<?php require_once("banco-produto.php");
 	
 function listaCategorias($conexao) {
 	$categorias = array();

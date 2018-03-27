@@ -1,6 +1,5 @@
-<?php include("cabecalho.php"); 		
- include("conecta.php");			
- include("banco-produto.php"); 
+<?php require_once("cabecalho.php"); 					
+ require_once("banco-produto.php"); 
 
 $id = $_POST['id'];
 $nome = $_POST['nome'];
@@ -13,7 +12,8 @@ if(array_key_exists('usado', $_POST)) {
 	$usado = "false";
 }
 
-if(alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado)) { ?>
+if(alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado)) { 
+	?>
 	<p class="text-success">O produto <?= $nome ?>, <?= $preco ?> foi alterado.</p>
 <?php } else {
 	$msg = mysqli_error($conexao);
@@ -23,4 +23,4 @@ if(alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado
 }
 ?>
 
-<?php include("rodape.php"); ?>			
+<?php require_once("rodape.php"); ?>			
