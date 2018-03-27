@@ -39,7 +39,7 @@
 #3 - Protegendo o acesso as páginas, refatorando e extraindo a lógica
 #4 - Insegurança com cookie, segurança com session e efetuando logout
 #5 - Passando parâmetros para a próxima requisição
-
+#6 - Refatoração, escopo de flash e controle de erro
 
 
 
