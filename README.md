@@ -50,6 +50,7 @@
 
 #Aulas; 
 #1 - Consultando os dados
+#2 - Atualizando e excluindo dados
 
 
 
