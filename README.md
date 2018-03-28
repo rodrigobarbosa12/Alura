@@ -52,6 +52,7 @@
 #1 - Consultando os dados
 #2 - Atualizando e excluindo dados
 #3 - Alterando e restringindo o formato das nossas tabelas
+#4 - Agrupando dados e fazendo consultas mais inteligentes
 
 
 
