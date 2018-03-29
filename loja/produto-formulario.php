@@ -1,6 +1,7 @@
 <?php require_once("cabecalho.php"); 
 require_once("banco-categoria.php");
 require_once("logica-usuario.php");
+require_once("class/produto.php");
 
 $categorias = listaCategorias($conexao);
 
@@ -8,7 +9,11 @@ $categorias = listaCategorias($conexao);
  verificaUsuario();
 
 #zera as informaçoes pois esta sendo usado um formulario ja preenchido.
-$produto = array("nome"=>"","preco"=>"","descricao"=>"","categoria_id"=>"1",);
+$categoria = new Categoria();
+$categoria->getId(1);
+
+$produto = new Produto();
+$produto->setCategoria($categoria);
 $usado="";
 
 ?>			
@@ -17,6 +22,7 @@ $usado="";
 
 	<table class="table">
 		  <?php require_once("produto-formulario-base.php"); ?>
+		  
 			<tr>
 				<td>
 					<button class="btn btn-primary" type="submit">Cadastrar</button>
@@ -24,4 +30,4 @@ $usado="";
 			</tr>
 		</table>
 	</form>
-<?php inrequire_onceclude("rodape.php"); ?>			
+<?php require_once("rodape.php"); ?>			
