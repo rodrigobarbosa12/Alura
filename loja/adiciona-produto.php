@@ -7,18 +7,18 @@
 verificaUsuario();
 $produto = new produto();
 
-$categoria = new categoria();
 $categoria->setId($_POST['categoria_id']);
 
-$produto->setNome($_POST['nome']);
-$produto->setPreco($_POST['preco']) ;
-$produto->setDescricao($_POST['descricao']) ;
-$produto->setCategoria($categoria)  ;
+$nome = $_POST['nome'];
+$preco = $_POST['preco'];
+$descricao = $_POST['descricao'] ;
+$categoria = $categoria ;
 if(array_key_exists('usado', $_POST)) {
 	$produto->setUsado("true")  ;
 } else {
 	$produto->setUsado("false")  ;
 }
+$categoria = new categoria($nome, $preco, $descricao, $categoria, $usado);
 
 if(insereProduto($conexao, $produto)) {	?>
 	<p class="text-success">O produto <?= $produto->getNome() ?> foi adicionado.</p>
