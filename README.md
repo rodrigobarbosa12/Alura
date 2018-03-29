@@ -60,6 +60,7 @@
 
 #Aulas; 
 #1 - Classes e Objetos
-#2- Evoluindo a listagem de produtos
+#2 - Evoluindo a listagem de produtos
+#3 - Métodos 
 
 
