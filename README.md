@@ -63,4 +63,5 @@
 #2 - Evoluindo a listagem de produtos
 #3 - Métodos 
 #4 - Encapsulamento
+#5 - Comparando objetos
 
