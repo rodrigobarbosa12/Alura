@@ -1,10 +1,4 @@
-			
-			
-			
 		</div>
 	</div>
-	
-	
 </body>
-	
 </html>
