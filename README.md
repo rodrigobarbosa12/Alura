@@ -64,4 +64,5 @@
 #3 - Métodos 
 #4 - Encapsulamento
 #5 - Comparando objetos
+#6 - Magic methods 
 
