@@ -12,8 +12,8 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
-$mail->Username = "alura.php.e.mysql@gmail.com";
-$mail->Password = "123456";
+$mail->Username = "rodrigocorsarios@hotmail.com";
+$mail->Password = "Rodrigo13";
 
 $mail->setFrom("alura.php.e.mysql@gmail.com", "Alura Curso PHP e MySQL");
 $mail->addAddress("alura.php.e.mysql@gmail.com");

@@ -1,6 +1,6 @@
 <?php
 
-class Produto {
+abstract class Produto {
 
 	private $id;
 	private $nome;
@@ -8,8 +8,6 @@ class Produto {
 	private $descricao;
 	private $categoria;
 	private $usado;
-	private $isbn;
-	private $tipoProduto;
 
 	function __construct($nome, $preco, $descricao, Categoria $categoria, $usado) {
 		$this->nome = $nome;
@@ -51,20 +49,6 @@ class Produto {
 		$this->usado = $usado;
 	}
 
-	public function getIsbn(){
-		return $this->isbn;
-	}
-	public function setIsbn($isbn){
-		$this->isbn = $isbn;
-	}
-
-	public function getTipoProduto(){
-		return $this->TipoProduto;
-	}
-	public function setTipoProduto($tipoProduto){
-		$this->TipoProduto = $tipoProduto;
-	}
-
 	public function precoComDesconto($valor = 0.1) {
 
 		if ($valor > 0 && $valor <= 0.5) {
@@ -73,6 +57,24 @@ class Produto {
 
 		return $this->preco;
 	}
+
+	public function calculaImposto() {
+		return $this->preco * 0.195;
+	}
+	
+	public function temIsbn() {
+		return $this instanceof Livro;
+	}
+
+	public function temTaxaImpressao() {
+		return $this instanceof LivroFisico;
+	}
+
+	public function temWaterMark() {
+		return $this instanceof Ebook;
+	}
+
+	abstract function atualizaBaseadoEm($params);
 
 	function __toString() {
 		return $this->nome.": R$ ".$this->preco;
