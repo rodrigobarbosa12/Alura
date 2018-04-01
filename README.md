@@ -74,3 +74,6 @@
 #1 - Autoloading de classes
 #2 - DAO - Data Access Object
 #3 - Herança
+#4 - Reescrita e Polimorfismo
+#5 - Classe Abstrata e o padrão Factory
+#6 - Método abstrato
