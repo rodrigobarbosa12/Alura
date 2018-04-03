@@ -1,4 +1,4 @@
-# Carreira Iniciante Back-end PHP
+# ---   Carreira Iniciante Back-end PHP     ---
 
 # Curso HTTP: Entendendo a web por baixo dos panos
 
@@ -77,3 +77,13 @@
 #4 - Reescrita e Polimorfismo
 #5 - Classe Abstrata e o padrão Factory
 #6 - Método abstrato
+
+
+
+# ---       Carreira Desenvolvedor PHP Erudito      ---
+
+
+# Design Patterns PHP I: Boas práticas de programação
+
+#Aulas;
+#1 - Padrões de projeto
