@@ -87,3 +87,4 @@
 
 #Aulas;
 #1 - Padrões de projeto
+#2 - A grande variedade de impostos e o padrão strategy
