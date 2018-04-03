@@ -55,8 +55,7 @@ class ProdutoDao {
 		$query = "insert into produtos (nome, preco, descricao, categoria_id, 
 				usado, isbn, tipoProduto, waterMark, taxaImpressao) 
 					values ('{$produto->getNome()}', {$produto->getPreco()}, 
-						'{$produto->getDescricao()}', 
-							{$produto->getCategoria()->getId()}, 
+						'{$produto->getDescricao()}', {$produto->getCategoria()->getId()}, 
 								{$produto->isUsado()}, '{$isbn}', '{$tipoProduto}', 
 									'{$waterMark}', '{$taxaImpressao}')";
 
