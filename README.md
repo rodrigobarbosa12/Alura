@@ -96,3 +96,16 @@
 #8 - Executando diferentes ações e o Observer
 #9 - Autoload
 #10 - Além dos padrões de projeto
+
+
+
+# Design Patterns PHP II: Boas práticas de programação
+
+#Aulas;
+#1 - Introdução
+#2 - Fábricas e o problema de criação de objetos
+#3 - Salvando estados anteriores e o Memento
+#4 - Estruturas de dados e o Visitor
+#5 - Estruturas de dados e o Visitor
+#6 - Bridges e Adapters
+#7 - Diferentes ações com Command
