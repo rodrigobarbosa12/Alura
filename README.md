@@ -46,6 +46,7 @@
 #10 - Envio de email via SMTP
 
 
+
 # MySQL I: Iniciando suas consultas
 
 #Aulas; 
@@ -54,6 +55,7 @@
 #3 - Alterando e restringindo o formato das nossas tabelas
 #4 - Agrupando dados e fazendo consultas mais inteligentes
 #5 - Juntando dados de várias tabelas
+
 
 
 # PHP I: Orientação a objetos com sua linguagem preferida
@@ -109,3 +111,14 @@
 #5 - Estruturas de dados e o Visitor
 #6 - Bridges e Adapters
 #7 - Diferentes ações com Command
+
+
+
+# SOLID com PHP: Orientação a Objetos com PHP
+
+#Aulas;
+#1 - Coesão e o Single Responsibility Principle
+#2 - Acoplamento e a estabilidade
+#3 - Classes abertas, Open Closed e Dependency Inversion Principles
+#4 - Entendendo o encapsulamento
+#5 - Herança e o Liskov Substitutive Principles

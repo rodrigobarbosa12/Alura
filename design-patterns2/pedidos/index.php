@@ -1,9 +1,11 @@
 <?php
 	function carregaClasse($classe) {
 		require $classe.".php";
-	}
+	}spl_autoload_register("carregaClasse");
 
-	spl_autoload_register("carregaClasse");
+
+
+	
 	$pedido1 = new Pedido("Renan",250);
 	$pedido2 = new Pedido("Marcelo",350);
 	$pedido3 = new Pedido("Bianca",50);
