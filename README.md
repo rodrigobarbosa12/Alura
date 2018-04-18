@@ -1,7 +1,6 @@
-# ---   Carreira Iniciante Back-end PHP     ---
+# ---   CARREIRA INICIANTE BACK-END PHP     ---
 
-# Curso HTTP: Entendendo a web por baixo dos panos
-
+# HTTP: Entendendo a web por baixo dos panos
 # Aulas;
 # 1 - O que é HTTP?
 # 2 - A web segura - HTTPS
@@ -12,10 +11,7 @@
 # 7 - Serviços na web com REST
 # 8 - HTTP2 - Por uma web mais eficiente
 
-
-
-# Curso PHP e MySQL I: Fundamentos para criar um sistema na Web
-
+# PHP e MySQL I: Fundamentos para criar um sistema na Web
 #Aulas;
 #1 - Primeiros passos com PHP
 #2 - Inserindo produtos no banco de dados
@@ -29,10 +25,7 @@
 #10 - Alterando produtos
 #11 - Subindo a aplicação para um Servidor
 
-
-
 # PHP e MySQL II: Cookies, sessões e mais recursos
-
 #Aulas; 
 #1 - Uma ação de login
 #2 - Efetuando o login e cookies
@@ -45,10 +38,7 @@
 #9 - Include, require, require_once
 #10 - Envio de email via SMTP
 
-
-
 # MySQL I: Iniciando suas consultas
-
 #Aulas; 
 #1 - Consultando os dados
 #2 - Atualizando e excluindo dados
@@ -56,10 +46,7 @@
 #4 - Agrupando dados e fazendo consultas mais inteligentes
 #5 - Juntando dados de várias tabelas
 
-
-
 # PHP I: Orientação a objetos com sua linguagem preferida
-
 #Aulas; 
 #1 - Classes e Objetos
 #2 - Evoluindo a listagem de produtos
@@ -68,10 +55,7 @@
 #5 - Comparando objetos
 #6 - Magic methods 
 
-
-
 # PHP II: Avançando com Orientação a objetos  
-
 #Aulas; 
 #1 - Autoloading de classes
 #2 - DAO - Data Access Object
@@ -82,11 +66,9 @@
 
 
 
-# ---       Carreira Desenvolvedor PHP Erudito      ---
-
+# ---       CARREIRA DESENVOLVEDOR PHP ERUDITO      ---
 
 # Design Patterns PHP I: Boas práticas de programação
-
 #Aulas;
 #1 - Padrões de projeto
 #2 - A grande variedade de impostos e o padrão strategy
@@ -99,10 +81,7 @@
 #9 - Autoload
 #10 - Além dos padrões de projeto
 
-
-
 # Design Patterns PHP II: Boas práticas de programação
-
 #Aulas;
 #1 - Introdução
 #2 - Fábricas e o problema de criação de objetos
@@ -112,13 +91,18 @@
 #6 - Bridges e Adapters
 #7 - Diferentes ações com Command
 
-
-
 # SOLID com PHP: Orientação a Objetos com PHP
-
 #Aulas;
 #1 - Coesão e o Single Responsibility Principle
 #2 - Acoplamento e a estabilidade
 #3 - Classes abertas, Open Closed e Dependency Inversion Principles
 #4 - Entendendo o encapsulamento
 #5 - Herança e o Liskov Substitutive Principles
+
+# Testes: TDD com PHP
+#Aulas;
+#1 - Começando com testes de unidade
+#2 - Praticando Test-Driven Development (TDD)
+#3 - Testando o que realmente é necessário
+#4 - Cuidando dos seus testes 
+#5 - Testando exceções
