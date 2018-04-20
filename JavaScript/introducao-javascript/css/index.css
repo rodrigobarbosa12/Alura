@@ -137,3 +137,11 @@ button[disabled=disabled], button:disabled {
 	background-color: lightcoral;
 }
 
+#erros{
+	color: red;
+}
+
+.fadeOut {
+	opacity: 0;
+	transition: 0.9s;
+}
