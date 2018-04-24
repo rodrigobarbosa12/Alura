@@ -1,7 +1,7 @@
 
 
 var pacientes = document.querySelectorAll(".paciente");
-var botao = document.querySelector("#adicionar-paciente");
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
 for(var i = 0; i < pacientes.length; i++){
 
