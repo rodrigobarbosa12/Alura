@@ -1,0 +1,22 @@
+<html>
+	<script>
+		
+		var alvo = '11a22b33c';
+		var exp = /(\d\d)(\w)/g;
+		var seultado = null;
+
+		while(resultado = exp.exec(alvo)){
+			console.log(resultado);
+			console.log(exp.lastIndex);
+		}
+
+/*
+	JavaScript, podemos declarar uma expressão regular de suas maneiras. 
+	A segunda forma consiste em criarmos uma instância de RegExp:
+	
+	var exp = new RegExp('(\\d\\d)(\\w)', 'g');
+
+	O que a torna verbosa é que precisamos escapar cada \ colocando um barra extra!
+*/
+</script>
+</html>

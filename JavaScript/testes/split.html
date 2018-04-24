@@ -1,0 +1,18 @@
+<html>
+	<script>
+		var arquivo = '100,200-150,200;20';
+		var exp = /[,;-]/;
+		// var valores = arquivo.split(',');
+		var valores = arquivo.split(exp);
+
+		console.log(valores);
+
+		/*
+			Há o método SPLIT que todo objeto String possui. 
+			Nela, podemos passar um separador que ele se encarregará de 
+			criar um array com cada item considerando o separador utilizado.
+			– A função split aceita receber como critério uma expressão regular.
+		*/
+
+	</script>
+</html>
