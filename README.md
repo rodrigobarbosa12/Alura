@@ -106,7 +106,7 @@
 #3 - Testando o que realmente é necessário
 #4 - Cuidando dos seus testes 
 #5 - Testando exceções
-
+ Reiniciando o jogo
 
 
 # ---       CARREIRA DESENVOLVEDOR JAVASCRIPT      ---
@@ -131,3 +131,12 @@
 #4 - Trabalhando com grupos
 #5 - Ganancioso ou preguiçoso
 #6 - Usando regex nas diversas linguagens
+
+# jQuery: Domine a biblioteca mais popular do mercado
+#Aulas;
+#1 - Introdução
+#2 - Escutando eventos com jQuery
+#3 - GameOver com eventos
+#4 - Reiniciando o jogo
+#5 - Funções que auxiliam os estilos
+#6 -
