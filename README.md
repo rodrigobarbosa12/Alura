@@ -139,4 +139,4 @@
 #3 - GameOver com eventos
 #4 - Reiniciando o jogo
 #5 - Funções que auxiliam os estilos
-#6 -
+#6 - Criando e Manipulando elementos com jQuery
