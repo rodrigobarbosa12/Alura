@@ -140,3 +140,16 @@
 #4 - Reiniciando o jogo
 #5 - Funções que auxiliam os estilos
 #6 - Criando e Manipulando elementos com jQuery
+
+
+
+# ---           CARREIRA ENGENHEIRO JAVASCRIPT      ---
+
+# JavaScript avançado I: ES6, orientação a objetos e padrões de projetos
+#Aulas; 
+#1 - Prólogo: regras, código e manutenção
+#2 - Especificando uma Negociação
+#3 - A ligação entre as ações do usuário e o modelo
+#4 - Lidar com data é trabalhoso? Chame um ajudante!
+#5 -
+#6 -
