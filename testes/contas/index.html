@@ -1,0 +1,17 @@
+<html>
+<body>
+<script src="Conta.js"></script>
+<script src="ContaCorrente.js"></script>
+<script src="ContaPoupanca.js"></script>
+<script>
+	
+	let contaCorrente = new ContaCorrente('Rodrigo', 300);
+	contaCorrente.atualiza(2);
+	console.log(contaCorrente.saldo);
+
+	let contaPoupanca = new ContaPoupanca('Rodrigo', 900);
+	contaPoupanca.atualiza(3);
+	console.log(contaPoupanca.saldo);
+</script>
+</body>
+</html> 

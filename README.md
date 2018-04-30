@@ -151,5 +151,5 @@
 #2 - Especificando uma Negociação
 #3 - A ligação entre as ações do usuário e o modelo
 #4 - Lidar com data é trabalhoso? Chame um ajudante!
-#5 -
-#6 -
+#5 - Temos o modelo, mas e a view?
+#6 - Generalizando a solução da nossa View 
