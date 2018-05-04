@@ -1,0 +1,52 @@
+<!-- troca-troca.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p class="info">Era uma vez...</p>
+    <script>
+
+        class Aviao {
+
+            constructor(nome) {
+                this._nome = nome;
+            }
+
+            voa() {
+                alert(`${this._nome} está voando`);
+            }
+
+            ligaMotor() {
+                console.log('liga o motor');
+            }
+
+            fechaPortas() {
+                console.log('Portas sendo fechadas');
+            }
+        }
+
+        class Passarinho {
+
+            constructor(nome) {
+                this._nome = nome;
+            }
+
+            voa() {
+                // executa o método `voa` de `Avião` usando como contexto a instância de `Passarinho`
+                Reflect.apply(Aviao.prototype.voa, this, []);
+
+                /*
+                    Olha ai o Reflect.apply novamente! Nesta linha de código estamos querendo executar o método voa da classe Aviao, mas usando como contexto o this da instância de Passarinho. O último parâmetro é um array que contém os parâmetros do método. Como voa não recebe parâmetro algum, passamos um array vazio.
+
+                    Um detalhe: foi necessário fazer Aviao.prototype.voa porque métodos criados usando ES6 são adicionados no prototype. Qualquer método adicionando em prototype estará disponível para todas as instâncias.
+                */
+            }
+        }
+
+
+    </script>
+</body>
+</html>
