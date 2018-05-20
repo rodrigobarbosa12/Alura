@@ -16,4 +16,8 @@ class ListaNegociacoes{
 		o retorno será uma nova lista, um novo array(CÓPIA)		
 	*/
 	}
+
+	esvazia(){
+		this._negociacoes = [];
+	}
 }

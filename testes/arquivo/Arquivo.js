@@ -4,7 +4,7 @@ class Arquivo{
 		this._nome = nome;
 		this._tamanho = tamanho;
 		this._tipo = tipo;
-		this._array = [];
+		
 	}
 
 	get nome(){

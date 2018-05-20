@@ -151,5 +151,14 @@
 #2 - Especificando uma Negociação
 #3 - A ligação entre as ações do usuário e o modelo
 #4 - Lidar com data é trabalhoso? Chame um ajudante!
+#5 - Temos o modelo, mas e a view?
+#6 - Generalizando a solução da nossa View 
+
+# JavaScript Avançado II: ES6, orientação a objetos e padrões de projetos
+#Aulas; 
+#1 - Como saber quando o modelo mudou?
+#2 - Existe modelo mentiroso? O padrão de projeto Proxy!
+#3 - E se alguém criasse nossos proxies? O Padrão de Projeto Factory
+#4 -
 #5 -
 #6 -
