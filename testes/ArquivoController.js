@@ -6,9 +6,8 @@ class ArquivoController{
 
 	envia(){
 
-		let array = this._inputDados.forEach(item => push(item))
-
-		console.log(array);
+		this._inputDados.value.split("/"); 
+		
 	}
 
 	_limpaFormulario(){

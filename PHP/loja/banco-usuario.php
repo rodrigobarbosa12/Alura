@@ -10,4 +10,3 @@ function buscaUsuario($conexao, $email, $senha) {
 	$usuario = mysqli_fetch_assoc($resultado);
 
 	return $usuario;
-}
