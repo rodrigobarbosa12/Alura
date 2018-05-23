@@ -13,8 +13,8 @@
 	// } -->
 
 <?php
-	$url = $_POST['url'];
-	$pagina = file_get_contents($url);
+	// $url = $_POST['bk.php'];
+	$pagina = file_get_contents('bk.php');
 ?>
 
 
@@ -56,31 +56,39 @@ var botao = document.querySelector("#bota1");
 			 	pegar();
 			});
 
+		var arrayJs = [];
+
 			function pegar(){
 
-				// forEach((item, i) => {
-					// 	arrayJs[i] = item.textContent;
-					// 	preco = precos[i].innerText;
-					// 	descri = descricao[i].textContent;
-					// 	imagem = imagens[i].src.toString();
+				var nomes = document.querySelectorAll(".result-text .text-wrap > h4");
+				var precos = document.querySelectorAll(".result-text .result-actions > span");
+				var descricao = document.querySelectorAll(".result-text .text-wrap > p");
+				var imagens = document.querySelectorAll(".result-text .photo-item > img");
+				nomes.forEach((item, i) => {
+						arrayJs[i] = item.textContent;
+						preco = precos[i].innerText;
+						descri = descricao[i].textContent;
+						imagem = imagens[i].src.toString();
 
 						
+				adicionaNaTabela(item.textContent, preco, descri, imagem);
 
-						// $.ajax({
-						// 	url: 'inserir.php',
-						// 	method: 'POST',
-						// 	data: {nome: nomes, precos: precos, descricao: descri, imagens: imagem},
-						// 	success: function(res){
-						// 		console.log(res);
-						// 	}
-						// });
-					// });
+						$.ajax({
+							url: 'inserir.php',
+							method: 'POST',
+							data: {nome: item.textContent, precos: preco, descricao: descri, imagen: imagem},
+							success: function(res){
+								console.log(res);
+							}
+						});
+					});
 					
-				var nomes = "rodrigo";
-				var precos = "123";
-				var descri = "asd";
-				var imagem = "www.com.br";
-			adicionaNaTabela(nomes, precos, descri, imagem);
+				// var nomes = "rodrigo";
+				// var precos = "123";
+				// var descri = "asd";
+				// var imagem = "www.com.br";
+
+		
 					
 							
 				function adicionaNaTabela(item, preco, descri, imagem){

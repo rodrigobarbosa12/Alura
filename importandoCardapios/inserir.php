@@ -1,16 +1,18 @@
 <?php
 
-	die("Opa 'die()' AQUI");
+	// die("Opa 'die()' AQUI");
 
 	$restaurante = "bk";
 	$nome = $_POST['nome'];
 	$preco = $_POST['precos'];
-	$descricao = $_POST['descricao'];
 	$imagem = $_POST['imagens'];
+	$descricao = chr(255) . chr(254) . mb_convert_encoding($_POST['descricao'], 'UTF-16LE', 'UTF-8');
+		var_dump($nome);
 
-	var_dump($nome);
+		
 	$conexao = mysqli_connect('localhost', 'root', '123456', 'importando_cardapios');
 
+die();
 		if ($conexao){
 			echo'Conectado com o banco!';
 		} else {
