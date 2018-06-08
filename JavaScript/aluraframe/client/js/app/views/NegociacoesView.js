@@ -17,7 +17,7 @@ class NegociacoesView extends View{
                         <th>VOLUME</th>
                     </tr>
                 </thead>
-                
+
             <tbody>
                 ${model.negociacoes.map(negociacao => `
 
@@ -26,11 +26,12 @@ class NegociacoesView extends View{
                             <td>${negociacao.quantidade}</td>
                             <td>${negociacao.valor}</td>
                             <td>${negociacao.volume}</td>
+                            <td>${model.volumeTotal}</td>
                         </tr>
 
                     `).join('')}
             </tbody>
-            
+
             <tfoot>
                 <td colspan="3">Total</td>
                 <td>${model.negociacoes.reduce((total, negociacao) => total + negociacao.volume, 0.0)}</td>
