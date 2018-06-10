@@ -1,21 +1,18 @@
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
 #define MAX 2
 
-/* Estrutra para armazenar a ficha do funcionario*/
+/* Estrutra para armazenar a ficha do produto*/
 
 struct cadastro
 {
-     int cod; /* Código do funcionario*/ 
-     char nome[50]; /* Nome do funcionario*/ 
-     float salario; /* Salario do funcionario*/      
-     char cargo[30]; /* Cargo do funcionario*/
-     int idade; /* idade do funcionario*/
-     char sexo[2]; /* Sexo do funcionario (M)- Masculino e (F)- Feminino*/
+     int cod; /* Código do produto*/ 
+     char nome[50]; /* Nome do produto*/ 
+     float preco; /* Salario do produto*/      
+     int quantidade; /* idade do produto*/
 };
 
-struct cadastro funcionario[MAX];
+struct cadastro produto[MAX];
 int topo;
 void inserir();
 void excluir();
@@ -32,7 +29,7 @@ int main()
       
       while(seguir == 's')
       {
-      printf(" - Cadastro de Funcionários - \n\n");
+      printf(" - Cadastro de produtos - \n\n");
       printf(" 1) NOVO \n");
       printf(" 2) REMOVER \n");
       printf(" 3) LISTAR \n");
@@ -50,7 +47,7 @@ int main()
                if(topo < MAX)
                {
                  inserir();
-                 printf(" DADO INSERIDO COM SUCESSO!\n\n");
+                 printf(" PRODUTO INSERIDO COM SUCESSO!\n\n");
                }
                else
                {
@@ -63,7 +60,7 @@ int main()
              {
                if(topo == 0)
                {
-                 printf("não há dados para serem excluidos!\n\n");
+                 printf("não há dados a serem excluidos!\n\n");
                }
                else
                {
@@ -80,7 +77,7 @@ int main()
                }
                else
                {
-                 printf(" Listando os Funcionarios cadastrados\n\n");
+                 printf(" Listando os produtos cadastrados\n\n");
                  listar();
                }
                break;
@@ -116,12 +113,13 @@ int main()
                printf(" ( OPCAO INVALIDA! )\n\n");
                              
         
-      }
+        }
       printf(" CONTINUAR?(S/N) ");
       scanf("%c",&seguir);
       
       printf("\n");
       }
+
 
 getchar();
 return 0;
@@ -132,41 +130,31 @@ return 0;
 
 void inserir()
 {    
-     funcionario[topo].cod = topo+1;
-     printf(" CODIGO : %d\n",funcionario[topo].cod);
+     produto[topo].cod = topo+1;
+     printf(" CODIGO : %d\n",produto[topo].cod);
      
-     printf(" NOME: ");
-     fgets(funcionario[topo].nome,50,stdin);
-     funcionario[topo].nome[strlen(funcionario[topo].nome)-1];
+     printf(" Nome do produto: ");
+     fgets(produto[topo].nome,50,stdin);
+     produto[topo].nome[strlen(produto[topo].nome)];
     
-          
-     printf(" CARGO: ");
-     fgets(funcionario[topo].cargo,30,stdin);
-     funcionario[topo].cargo[strlen(funcionario[topo].cargo)-1];
-
-     printf(" SALARIO: ");
-     scanf("%f", &funcionario[topo].salario);
+     printf(" Preço: ");
+     scanf("%f", &produto[topo].preco);
     
-     printf(" IDADE: ");
-     scanf("%d", &funcionario[topo].idade);
-          
-     printf(" SEXO: ");
-     fgets(funcionario[topo].sexo,2,stdin);
-     funcionario[topo].sexo[strlen(funcionario[topo].sexo)-1];
-              
+     printf(" Quantidade: ");
+     scanf("%d", &produto[topo].quantidade);
      printf("\n");
      
      topo = topo + 1;
 }
 
-/*Excluir um funcionario do Sistema*/
+/*Excluir um produto do Sistema*/
 
 void excluir()
 {
      topo  = topo - 1;
 }
 
-/*Listar os funcionarios cadastrados no Sistema*/
+/*Listar os produtos cadastrados no Sistema*/
 
 void listar()
 {
@@ -175,17 +163,15 @@ void listar()
      for(i = 0;i < topo; i++)
      {
            printf(" ARQUIVO %d\n",(i+1));
-           printf(" CODIGO: %d",funcionario[i].cod);
-           printf(" NOME: %s",funcionario[i].nome);
-           printf(" SALARIO: %f",funcionario[i].salario);           
-           printf(" CARGO: %s",funcionario[i].cargo);
-           printf(" IDADE: %d",funcionario[i].idade);
-           printf(" SEXO: %s",funcionario[i].sexo);
+           printf(" CODIGO: %d",produto[i].cod);
+           printf(" Nome do produto: %s",produto[i].nome);
+           printf(" Preço: %f",produto[i].preco);           
+           printf(" Quantidade: %d",produto[i].quantidade);
            printf("\n\n");
      }
 }
 
-/*Alterar os funcionarios cadastrados no Sistema*/
+/*Alterar os produtos cadastrados no Sistema*/
 
 void alterar()
 {
@@ -196,33 +182,25 @@ void alterar()
      scanf("%d",&dado);
      for(i = 0;i < topo; i++)
      {
-       if(dado == funcionario[i].cod)
+       if(dado == produto[i].cod)
        {
          cont = cont + 1;
                   
-          printf(" NOME: ");
-          fgets(funcionario[topo].nome,50,stdin);
-          funcionario[topo].nome[strlen(funcionario[topo].nome)-1];
+          printf(" Nome do produto: ");
+          fgets(produto[topo].nome,50,stdin);
+          produto[topo].nome[strlen(produto[topo].nome)-1];;
     
-          printf(" CARGO: ");
-          fgets(funcionario[topo].cargo,30,stdin);
-          funcionario[topo].cargo[strlen(funcionario[topo].cargo)-1];
-    
-          printf(" SALARIO: ");
-          scanf("%f", &funcionario[topo].salario);
+          printf(" Preço: ");
+          scanf("%f", &produto[topo].preco);
 
-          printf(" IDADE: ");
-          scanf("%d", &funcionario[topo].idade);
-     
-          printf(" SEXO: ");
-          fgets(funcionario[topo].sexo,2,stdin);
-          funcionario[topo].sexo[strlen(funcionario[topo].sexo)-1];
+          printf(" Quantidade: ");
+          scanf("%d", &produto[topo].quantidade);
          
        }
      }
      if(cont == 0)
      {
-       printf(" DADO não ENCONTRADO!\n\n"); 
+       printf(" DADO NÃO ENCONTRADO!\n\n"); 
      }
 }
 
@@ -234,15 +212,13 @@ void pesquisar()
      scanf("%d",&dado);
      for(i = 0;i < topo; i++)
      {
-       if(dado == funcionario[i].cod)
+       if(dado == produto[i].cod)
        {
           printf("Dado Encontrado \n\n");
-          printf(" CODIGO: %d",funcionario[i].cod);
-          printf(" NOME: %s",funcionario[i].nome);
-          printf(" SALARIO: %f",funcionario[i].salario);           
-          printf(" CARGO: %s",funcionario[i].cargo);
-          printf(" IDADE: %d",funcionario[i].idade);
-          printf(" SEXO: %s",funcionario[i].sexo);
+          printf(" CODIGO: %d",produto[i].cod);
+          printf(" Nome do produto: %s",produto[i].nome);
+          printf(" Preço: %f",produto[i].preco);           
+          printf(" Quantidade: %d",produto[i].quantidade);
           printf("\n");
          cont = cont + 1;
        }
@@ -252,6 +228,7 @@ void pesquisar()
        printf(" Registro não Encontrado!\n\n");
      }
 }
+
 
 // -> Crie o executável:
 // gcc programa.c -o executavel

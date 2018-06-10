@@ -1,17 +1,3 @@
-<!-- 	// $dom = new DOMDocument();
-	// $dom->loadHTML($pagina);
-
-
-// echo'<pre>';
-// var_dump(get_class_methods(DOMDocument));
-// die();
-
-// 	$tabela = $dom->getElementsByTagName('a');
-// 	foreach ($tabela as $item) {
-// 	    echo $item->getAttribute('href');
-// 	    echo'</br>';
-	// } -->
-
 <?php
 	// $url = $_POST['bk.php'];
 	$pagina = file_get_contents('bk.php');
@@ -42,8 +28,6 @@
 					      
 			</table>
 			</br>
-         <!--         <script src="capturar.js"></script> -->
-                 <!-- <script src="XMLHttpRequest.js"></script> -->
         </form>
 
 
@@ -81,15 +65,7 @@ var botao = document.querySelector("#bota1");
 								console.log(res);
 							}
 						});
-					});
-					
-				// var nomes = "rodrigo";
-				// var precos = "123";
-				// var descri = "asd";
-				// var imagem = "www.com.br";
-
-		
-					
+					});					
 							
 				function adicionaNaTabela(item, preco, descri, imagem){
 
@@ -120,7 +96,6 @@ var botao = document.querySelector("#bota1");
 					return td;
 				}
 	}
-
 
 </script>
 
