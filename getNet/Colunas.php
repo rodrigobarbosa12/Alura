@@ -556,7 +556,7 @@ class Colunas {
         return $this->codigo_produto = $codigo_produto;
     }
 
-//Comprovante 
+//Comprovante
 
     function getNumeroCartao()
     {
@@ -776,7 +776,7 @@ class Colunas {
         return $this->valor_bruto_total;
     }
 
-    function getValorLiquidoAvista()
+    function getSinalLiquidoAvista()
     {
         return $this->sinal_liquido_avista;
     }
@@ -811,7 +811,7 @@ class Colunas {
         return $this->sinal_liquido_total;
     }
 
-    function getSinalLiquidoTotal()
+    function getValorLiquidoTotal()
     {
         return $this->valor_liquido_total;
     }
@@ -887,7 +887,7 @@ class Colunas {
         return $this->valor_bruto_total = $valor_bruto_total;
     }
 
-    function setValorLiquidoAvista($sinal_liquido_avista)
+    function setSinalLiquidoAvista($sinal_liquido_avista)
     {
         return $this->sinal_liquido_avista = $sinal_liquido_avista;
     }
@@ -917,7 +917,7 @@ class Colunas {
         return $this->valor_liquido_pre = $valor_liquido_pre;
     }
 
-    function setSinalLiquidoTotal($sinal_liquido_total)
+    function setValorLiquidoTotal($sinal_liquido_total)
     {
         return $this->sinal_liquido_total = $sinal_liquido_total;
     }
@@ -993,7 +993,7 @@ class Colunas {
     function getSinalLiquidoAntecipacao()
     {
         return $this->sinal_liquido_antecipacao;
-    }    
+    }
     function getValorLiquidoAntecipacao()
     {
         return $this->valor_liquido_antecipacao;
@@ -1120,7 +1120,7 @@ class Colunas {
         return $this->valor_saldo_antecipado = $valor_saldo_antecipado;
     }
 
-//Trailer 
+//Trailer
     function getQuantidadeRegistro()
     {
         return $this->quantidade_registro;

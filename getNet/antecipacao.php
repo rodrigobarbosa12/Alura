@@ -30,7 +30,7 @@ function antecipacaoGetNet($linha, $conexao)
 function antecipacaoTivit($linha, $pdo, $conexao, $coluna)
 {
 	$coluna->getTipo(substr($linha, 0,1));
-	$coluna->getCodigoComercial(substr($linha, 1,10);)
+	$coluna->getCodigoComercial(substr($linha, 1,10));
 	$coluna->getNumeroOperacao(substr($linha, 11,9));
 	$coluna->getDataCredito(substr($linha, 21,8));
 	$coluna->getSinalBrutoAvista(substr($linha, 28,1));
@@ -40,7 +40,7 @@ function antecipacaoTivit($linha, $pdo, $conexao, $coluna)
 	$coluna->getSinalBrutoPre(substr($linha, 56,1));
 	$coluna->getValorBrutoPre(substr($linha, 57,13));
 	$coluna->getSinalBrutoTotal(substr($linha, 70,1));
-	$coluna->getValorBrutoTotal(substr($linha, 71,13)_;
+	$coluna->getValorBrutoTotal(substr($linha, 71,13));
 	$coluna->getSinalLiquidoAvista(substr($linha, 84,1));
 	$coluna->getValorLiquidoAvista(substr($linha, 85,13));
 	$coluna->getSinalLiquidoParcelado(substr($linha, 98,1));
@@ -56,7 +56,7 @@ function antecipacaoTivit($linha, $pdo, $conexao, $coluna)
 	$coluna->getSinalLiquidoAntecipacao(substr($linha, 168,1));
 	$coluna->getLiquidoAntecipacao(substr($linha, 179,13));
 	$coluna->getReservado(substr($linha, 162,68));
-	
-	inserirAntecipacaoTivit($pdo, $conexao, $coluna)
+
+	inserirAntecipacaoTivit($pdo, $conexao, $coluna);
 
 }

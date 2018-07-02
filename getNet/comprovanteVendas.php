@@ -43,8 +43,8 @@ function comprovanteVendasTivt($linha, $pdo, $conexao, $coluna)
 	$coluna->setNumeroRv(substr($linha, 11,7));
 	$coluna->setNumeroCartao(substr($linha, 18,19));
 	$coluna->setDataTransacao(substr($linha, 37,8));
-	$coluna->setSinalCompraParcela(substr($linha, 45,1));
-	$coluna->setCompraParcela(substr($linha, 46,13));
+	$coluna->setSinalCompraParcelada(substr($linha, 45,1));
+	$coluna->setCompraParcelada(substr($linha, 46,13));
 	$coluna->setParcelaCv(substr($linha, 59,2));
 	$coluna->setParcelas(substr($linha, 61,2));
 	$coluna->setMotivoRejeicao(substr($linha, 63,3));
@@ -66,5 +66,5 @@ function comprovanteVendasTivt($linha, $pdo, $conexao, $coluna)
 	$coluna->setReservado(substr($linha, 218,32));
 
 	inserirComprovanteTivit($pdo, $conexao, $coluna);
-	
+
 }

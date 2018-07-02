@@ -17,7 +17,7 @@ function inserirCabacalhoTivit($pdo, $conexao, $coluna)
     $reservado = $coluna->getReservado();
 
     verificarEstabelecimento($conexao, $coluna, $estabelecimento);
-    
+
     $integracoes_id = $coluna->getIntegracoesId();
 
     $stmt = $pdo->prepare("INSERT INTO header (tipo, estabelecimento, data_criacao,
@@ -51,7 +51,7 @@ function inserirResumoTivit($pdo, $conexao, $coluna)
     $codigo_comercial = $coluna->getCodigoComercial();
     $numero_rv = $coluna->getNumeroRv();
     $parcela_rv = $coluna->getParcelaRv();
-    $filter = $$coluna->getFiller();
+    $filter = $coluna->getFiller();
     $quantidade_parcelas_rv = $coluna->getQuantidadeParcelasRv();
     $tipo_transacao = $coluna->getTipoTransacao();
     $data_rv = $coluna->getDataRv();
@@ -69,8 +69,8 @@ function inserirResumoTivit($pdo, $conexao, $coluna)
     $agencia = $coluna->getAgencia();
     $conta_corrente = $coluna->getContaCorrente();
     $status = $coluna->getStatus();
-    $vc_aceitos = $coluna->getCvAceitos();
-    $vc_rejeitado = $coluna->getCvRejeitados();
+    $cv_aceitos = $coluna->getCvAceitos();
+    $cv_rejeitado = $coluna->getCvRejeitados();
     $id_revenda = $coluna->getIdRevenda();
     $data_transacao = $coluna->getDataTransacao();
     $tipo_ajuste = $coluna->getTipoAjuste();
@@ -88,17 +88,19 @@ function inserirResumoTivit($pdo, $conexao, $coluna)
     $numero_logico_terminal = $coluna->getNumeroLogicoTerminal();
     $codigo_produto = $coluna->getCodigoProduto();
     $estabelecimento = $coluna->getEstabelecimento();
-    $reservado = $coluna->getReservado();    
+    $reservado = $coluna->getReservado();
     $integracoes_id = $coluna->getIntegracoesId();
+    // echo $integracoes_id;
+    // die();
 
-    $stmt = $pdo->prepare("INSERT INTO detalhe_resumo (tipo, codigo_comercial, numero_rv, parcela_rv, filler, quantidade_parcelas_rv, tipo_transacao, data_rv, data_pagamento_rv, data_envio, sinal_bruto, valor_bruto, sinal_comissao, valor_comissao, sinal_rejeitado, valor_rejeitado, sinal_liquido, valor_liquido, banco, agencia, conta_corrente, status, cv_aceitos, cv_rejeitados, id_revenda, data_transacao, tipo_ajuste, valor_saque, id_antecipacao, operacao_antecipacao, sinal_bruto_antecipacao, bruto_antecipacao, bandeira, numero_unico_rv, taxa_comissao, tarifa, taxa_garantia, captura, numero_logico_terminal, codigo_produto, estabelecimento, reservado)
-    values (':tipo', :codigo_comercial, :numero_rv, :parcela_rv, :filler, :quantidade_parcelas_rv, :tipo_transacao, :data_rv, :data_pagamento_rv, :data_envio, :sinal_bruto, :valor_bruto, :sinal_comissao, :valor_comissao, :sinal_rejeitado, :valor_rejeitado, :sinal_liquido, :valor_liquido, :banco, $agencia, conta_corrente, :status, :cv_aceitos, :cv_rejeitados, :id_revenda, :data_transacao, :tipo_ajuste', :valor_saque, '$id_antecipacao', $operacao_antecipacao, '$sinal_bruto_antecipacao, :bruto_antecipacao, :bandeira, :numero_unico_rv, :taxa_comissao, :tarifa, :taxa_garantia, :captura, :numero_logico_terminal, :codigo_produto, :estabelecimento, :reservado, :integracoes_id)");
+    $stmt = $pdo->prepare("INSERT INTO detalhe_resumo (tipo, codigo_comercial, numero_rv, parcela_rv, filler, quantidade_parcelas_rv, tipo_transacao, data_rv, data_pagamento_rv, data_envio, sinal_bruto, valor_bruto, sinal_comissao, valor_comissao, sinal_rejeitado, valor_rejeitado, sinal_liquido, valor_liquido, banco, agencia, conta_corrente, status, cv_aceitos, cv_rejeitados, id_revenda, data_transacao, tipo_ajuste, valor_saque, id_antecipacao, operacao_antecipacao, sinal_bruto_antecipacao, bruto_antecipacao, bandeira, numero_unico_rv, taxa_comissao, tarifa, taxa_garantia, captura, numero_logico_terminal, codigo_produto, estabelecimento, reservado, integracoes_id )
+    values (:tipo, :codigo_comercial, :numero_rv, :parcela_rv, :filler, :quantidade_parcelas_rv, :tipo_transacao, :data_rv, :data_pagamento_rv, :data_envio, :sinal_bruto, :valor_bruto, :sinal_comissao, :valor_comissao, :sinal_rejeitado, :valor_rejeitado, :sinal_liquido, :valor_liquido, :banco, :agencia, :conta_corrente, :status, :cv_aceitos, :cv_rejeitados, :id_revenda, :data_transacao, :tipo_ajuste', :valor_saque, :id_antecipacao, :operacao_antecipacao, :sinal_bruto_antecipacao, :bruto_antecipacao, :bandeira, :numero_unico_rv, :taxa_comissao, :tarifa, :taxa_garantia, :captura, :numero_logico_terminal, :codigo_produto, :estabelecimento, :reservado, :integracoes_id)");
 
     $stmt->bindParam(':tipo', $tipo, PDO::PARAM_NULL);
     $stmt->bindParam(':codigo_comercial', $codigo_comercial, PDO::PARAM_NULL);
     $stmt->bindParam(':numero_rv', $numero_rv, PDO::PARAM_NULL);
     $stmt->bindParam(':parcela_rv', $parcela_rv, PDO::PARAM_NULL);
-    $stmt->bindParam(':filter', $filter, PDO::PARAM_NULL);
+    $stmt->bindParam(':filler', $filter, PDO::PARAM_NULL);
     $stmt->bindParam(':quantidade_parcelas_rv', $quantidade_parcelas_rv, PDO::PARAM_NULL);
     $stmt->bindParam(':tipo_transacao', $tipo_transacao, PDO::PARAM_NULL);
     $stmt->bindParam(':data_rv', $data_rv, PDO::PARAM_NULL);
@@ -136,7 +138,7 @@ function inserirResumoTivit($pdo, $conexao, $coluna)
     $stmt->bindParam(':codigo_produto', $codigo_produto, PDO::PARAM_NULL);
     $stmt->bindParam(':estabelecimento', $estabelecimento, PDO::PARAM_NULL);
     $stmt->bindParam(':reservado', $reservado, PDO::PARAM_NULL);
-    $stmt->bindParam(':integracoes_id', $integracoes_id, PDO::PARAM_NULL);
+    $stmt->bindParam(':integracoes_id', $integracoes_id, PDO::PARAM_INT);
     $stmt->execute();
 
 }
@@ -148,9 +150,9 @@ function inserirComprovanteTivit($pdo, $conexao, $coluna)
     $codigo_comercial = $coluna->getCodigoComercial();
     $numero_rv = $coluna->getNumeroRv();
     $numero_cartao = $coluna->getNumeroCartao();
-    $data_transacao = $coluna->getDaaTransacao();
-    $sinal_compra_parcela = $coluna->getSinalCompraParcela();
-    $compra_parcela = $coluna->getCompraParcela();
+    $data_transacao = $coluna->getDataTransacao();
+    $sinal_compra_parcela = $coluna->getSinalCompraParcelada();
+    $compra_parcela = $coluna->getCompraParcelada();
     $parcela_cv = $coluna->getParcelaCv();
     $parcelas = $coluna->getParcelas();
     $motivo_rejeicao = $coluna->getMotivoRejeicao();
@@ -160,12 +162,12 @@ function inserirComprovanteTivit($pdo, $conexao, $coluna)
     $valor_transacao = $coluna->getValorTransacao();
     $digitos_cartao = $coluna->getDigitosCartao();
     $total_parcelado = $coluna->getTotalParcelas();
-    $proxima_parcela = $coluna->getProximaParcel();
+    $proxima_parcela = $coluna->getProximaParcela();
     $nota_fiscal = $coluna->getNotaFiscal();
     $emissor = $coluna->getEmissor();
     $codigo_terminal = $coluna->getCodigoTerminal();
     $taxa_embarque = $coluna->getTaxaEmbarque();
-    $codigo_referencia = $coluna->getCodigoEmbarque();
+    $codigo_referencia = $coluna->getCodigoReferencia();
     $hora_transacao = $coluna->getHoraTransacao();
     $id_transacao = $coluna->getIdTransacao();
     $id_cielo_promo = $coluna->getIdCieloPromo();
@@ -173,8 +175,8 @@ function inserirComprovanteTivit($pdo, $conexao, $coluna)
     $integracoes_id = $coluna->getIntegracoesId();
 
 
-    $stmt = $pdo->prepare("INSERT INTO detalhe_comprovante (tipo, codigo_comercial, numero_rv, numero_cartao, data_transacao, sinal_compra_parcela, compra_parcela, parcela_cv, parcelas, motivo_rejeicao, autorizacao, tid, nsu, valor_transacao, digitos_cartao, total_parcelado, proxima_parcela, nota_fiscal, emissor, codigo_terminal, taxa_embarque, codigo_referencia, hora_transacao, id_transacao, id_cielo_promo, reservado)
-    values (:tipo, :codigo_comercial, :numero_rv, :numero_cartao, :data_transacao, :sinal_compra_parcela, :compra_parcela, :parcela_cv, :parcelas, :motivo_rejeicao,:autorizacao, :tid, :nsu, :valor_transacao, :digitos_cartao, :total_parcelado, :proxima_parcela, :nota_fiscal, :emissor, :codigo_terminal, :taxa_embarque, :codigo_referencia, :hora_transacao, :id_transacao, :id_cielo_promo, :reservado, :id)");
+    $stmt = $pdo->prepare("INSERT INTO detalhe_comprovante (tipo, codigo_comercial, numero_rv, numero_cartao, data_transacao, sinal_compra_parcela, compra_parcela, parcela_cv, parcelas, motivo_rejeicao, autorizacao, tid, nsu, valor_transacao, digitos_cartao, total_parcelado, proxima_parcela, nota_fiscal, emissor, codigo_terminal, taxa_embarque, codigo_referencia, hora_transacao, id_transacao, id_cielo_promo, reservado, integracoes_id)
+    values (:tipo, :codigo_comercial, :numero_rv, :numero_cartao, :data_transacao, :sinal_compra_parcela, :compra_parcela, :parcela_cv, :parcelas, :motivo_rejeicao,:autorizacao, :tid, :nsu, :valor_transacao, :digitos_cartao, :total_parcelado, :proxima_parcela, :nota_fiscal, :emissor, :codigo_terminal, :taxa_embarque, :codigo_referencia, :hora_transacao, :id_transacao, :id_cielo_promo, :reservado, :integracoes_id)");
 
     $stmt->bindParam(':tipo', $tipo, PDO::PARAM_NULL);
     $stmt->bindParam('codigo_comercial', $codigo_comercial, PDO::PARAM_NULL);
@@ -239,7 +241,7 @@ function inserirAntecipacaoTivit($pdo, $conexao, $coluna)
     $reservado = $coluna->getReservado();
     $integracoes_id = $coluna->getIntegracoesId();
 
-    $stmt= $pdo->prepara("INSERT INTO detalhe_antecipacao (tipo, codigo_comercial, numero_operacao, data_credito, sinal_bruto_avista, valor_bruto_avista, sinal_bruto_parcelado, valor_bruto_parcelado, sinal_bruto_pre, valor_bruto_pre, sinal_bruto_total, valor_bruto_total, sinal_liquido_avista, valor_liquido_avista, sinal_liquido_parcelado, valor_liquido_parcelado, sinal_liquido_pre, valor_liquido_pre, sinal_liquido_total, valor_liquido_total, taxa_antecipacao, banco_domicilio, agencia_domicilio, conta_domicilio, sinal_liquido_antecipacao, liquido_antecipacao, reservado)
+    $stmt= $pdo->prepara("INSERT INTO detalhe_antecipacao (tipo, codigo_comercial, numero_operacao, data_credito, sinal_bruto_avista, valor_bruto_avista, sinal_bruto_parcelado, valor_bruto_parcelado, sinal_bruto_pre, valor_bruto_pre, sinal_bruto_total, valor_bruto_total, sinal_liquido_avista, valor_liquido_avista, sinal_liquido_parcelado, valor_liquido_parcelado, sinal_liquido_pre, valor_liquido_pre, sinal_liquido_total, valor_liquido_total, taxa_antecipacao, banco_domicilio, agencia_domicilio, conta_domicilio, sinal_liquido_antecipacao, liquido_antecipacao, reservado, integracoes_id)
     values (:tipo, :codigo_comercial, :numero_operacao, :data_credito, :sinal_bruto_avista, :valor_bruto_avista, :sinal_bruto_parcelado, :valor_bruto_parcelado, :sinal_bruto_pre, :valor_bruto_pre, :sinal_bruto_total, :valor_bruto_total, :sinal_liquido_avista, :valor_liquido_avista, :sinal_liquido_parcelado, :valor_liquido_parcelado, :sinal_liquido_pre, :valor_liquido_pre, :sinal_liquido_total, :valor_liquido_total, :taxa_antecipacao, :banco_domicilio, :agencia_domicilio, :conta_domicilio, :sinal_liquido_antecipacao, :liquido_antecipacao, :reservado, :integracoes_id)");
 
     $stmt->bindParam(':tipo', $tipo, PDO::PARAM_NULL);
@@ -297,8 +299,8 @@ function inserirRosAntecipadosTivit($pdo, $conexao, $coluna)
     $reservado = $coluna->getReservado();
     $integracoes_id = $coluna->getIntegracoesId();
 
-    $stmt = $pdo->prepare("INSERT INTO ros_antecipados (tipo, codigo_comercial, numero_operacao, data_vencimento_ro, numero_ro_antecipado, parcela_antecipada, total_parcelas, sinal_bruto_original, valor_bruto_original, sinal_liquido_original, valor_liquido_original, sinal_bruto_antecipacao, valor_bruto_antecipacao, sinal_liquido_antecipacao, valor_liquido_antecipacao, bandeira, numero_ro, revervado)
-    values (:tipo, :codigo_comercial, :numero_operacao, :data_vencimento_ro, :numero_ro_antecipado, :parcela_antecipada, :total_parcelas, :sinal_bruto_original, :valor_bruto_original, :sinal_liquido_original, :valor_liquido_original, :sinal_bruto_antecipacao, :valor_bruto_antecipacao, :sinal_liquido_antecipacao, :valor_liquido_antecipacao, :bandeira, :numero_ro, :reservado, :integracoes_id)");    
+    $stmt = $pdo->prepare("INSERT INTO ros_antecipados (tipo, codigo_comercial, numero_operacao, data_vencimento_ro, numero_ro_antecipado, parcela_antecipada, total_parcelas, sinal_bruto_original, valor_bruto_original, sinal_liquido_original, valor_liquido_original, sinal_bruto_antecipacao, valor_bruto_antecipacao, sinal_liquido_antecipacao, valor_liquido_antecipacao, bandeira, numero_ro, revervado, integracoes_id)
+    values (:tipo, :codigo_comercial, :numero_operacao, :data_vencimento_ro, :numero_ro_antecipado, :parcela_antecipada, :total_parcelas, :sinal_bruto_original, :valor_bruto_original, :sinal_liquido_original, :valor_liquido_original, :sinal_bruto_antecipacao, :valor_bruto_antecipacao, :sinal_liquido_antecipacao, :valor_liquido_antecipacao, :bandeira, :numero_ro, :reservado, :integracoes_id)");
 
 
     $stmt->bindParam(':tipo', $tipo, PDO::PARAM_NULL);
@@ -346,7 +348,7 @@ function inserirDebitosAntecipacaoTivit($pdo, $conexao, $coluna)
     $reservado = $coluna->getReservado();
     $integracoes_id = $coluna->getIntegracoesId();
 
-    $stmt = $pdo->prepare("INSERT INTO debitos_antecipados (tipo, codigo_comercial, numero_ro_original, numero_ro_antecipado, data_pagamento_ro, sinal_ro_antecipado, valor_ro_antecipado, originou_ajuste, numero_ro_debito, data_pagamento_ajuste, sinal_ajuste_debito, valor_ajuste_debito, sinal_compensado, valor_compensado, sinal_saldo_antecipado, valor_saldo_antecipado, reservado)
+    $stmt = $pdo->prepare("INSERT INTO debitos_antecipados (tipo, codigo_comercial, numero_ro_original, numero_ro_antecipado, data_pagamento_ro, sinal_ro_antecipado, valor_ro_antecipado, originou_ajuste, numero_ro_debito, data_pagamento_ajuste, sinal_ajuste_debito, valor_ajuste_debito, sinal_compensado, valor_compensado, sinal_saldo_antecipado, valor_saldo_antecipado, reservado, integracoes_id)
     values (:tipo, :codigo_comercial, :numero_ro_original, :numero_ro_antecipado, :data_pagamento_ro, :sinal_ro_antecipado, :valor_ro_antecipado, :originou_ajuste, :numero_ro_debito, :data_pagamento_ajuste, :sinal_ajuste_debito, :valor_ajuste_debito, :sinal_compensado, :valor_compensado, :sinal_saldo_antecipado, :valor_saldo_antecipado, :reservado, :integracoes_id)");
 
     $stmt->bindParam(':tipo', $tipo, PDO::PARAM_NULL);
@@ -378,7 +380,7 @@ function inserirTrailerTivit($pdo, $conexao, $coluna)
     $reservado = $coluna->getReservado();
     $integracoes_id = $coluna->getIntegracoesId();
 
-    $stmt = $pdo->prepare("INSERT INTO trailer_arquivo (tipo, quantidade_registro, reservado) 
+    $stmt = $pdo->prepare("INSERT INTO trailer_arquivo (tipo, quantidade_registro, reservado, integracoes_id)
                     values (:tipo, :quantidade_registro, :reservado, :integracoes_id)");
 
     $stmt->bindParam(':tipo', $tipo, PDO::PARAM_NULL);

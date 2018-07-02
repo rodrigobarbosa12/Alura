@@ -50,7 +50,7 @@ function resumoVendasGetNet($linha, $conexao)
 }
 
 
-function resumoVendasTivt($extrato, $pdo, $conexao, $coluna)
+function resumoVendasTivt($linha, $pdo, $conexao, $coluna)
 {
 	$coluna->setTipo(substr($linha, 0,1));
 	$coluna->setCodigoComercial(substr($linha, 1,10));
