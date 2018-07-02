@@ -67,19 +67,19 @@ function salvar($extrato, $pdo, $conexao, $coluna)
 			resumoVendasTivt($extrato, $pdo, $conexao, $coluna);
 			break;
 		case 2:
-			comprovanteVendasTivt($extrato, $pdo, $conexao, $coluna);
+			comprovanteVendasTivt($extrato, $conexao);
 			break;
 		case 5:
-			antecipacaoTivit($extrato, $pdo, $conexao, $coluna);
+			antecipacaoTivit($extrato, $conexao);
 			break;
 		case 6:
-			rosAntecipados($extrato, $pdo, $conexao, $coluna);
+			rosAntecipados($extrato, $conexao);
 			break;
 		case 7:
-			debitosAntecipados($extrato, $pdo, $conexao, $coluna);
+			debitosAntecipados($extrato, $conexao);
 			break;
 		case 9:
-			trailerTivit($extrato, $pdo, $conexao, $coluna);
+			trailerTivit($extrato, $conexao);
 			break;
 	}
 }

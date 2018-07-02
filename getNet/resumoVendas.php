@@ -82,7 +82,7 @@ function resumoVendasTivt($extrato, $pdo, $conexao, $coluna)
 	$coluna->setValorSaque(substr($linha, 147,13));
 	$coluna->setIdAntecipacao(substr($linha, 160,1));
 	$coluna->setOperacaoAntecipacao(substr($linha, 161,9));
-	$coluna->setSinalBrutoAntecipacao(substr($linha, 170,1));
+	$coluna->setSinalArutoAntecipacao(substr($linha, 170,1));
 	$coluna->setBrutoAntecipacao(substr($linha, 171,13));
 	$coluna->setBandeira(substr($linha, 184,3));
 	$coluna->setNumeroUnicoRv(substr($linha, 187,22));
@@ -97,4 +97,13 @@ function resumoVendasTivt($extrato, $pdo, $conexao, $coluna)
 
 	inserirResumoTivit($pdo, $conexao, $coluna);
 
+	// if (!$data_envio) {
+	// 	$inserir = "INSERT INTO detalhe_resumo (tipo, codigo_comercial, numero_rv, parcela_rv, filler, quantidade_parcelas_rv, tipo_transacao, data_rv, data_pagamento_rv, sinal_bruto, valor_bruto, sinal_comissao, valor_comissao, sinal_rejeitado, valor_rejeitado, sinal_liquido, valor_liquido, banco, agencia, conta_corrente, status, cv_aceitos, cv_rejeitados, id_revenda, data_transacao, tipo_ajuste, valor_saque, id_antecipacao, operacao_antecipacao, sinal_bruto_antecipacao, bruto_antecipacao, bandeira, numero_unico_rv, taxa_comissao, tarifa, taxa_garantia, captura, numero_logico_terminal, codigo_produto, estabelecimento, reservado)
+	// 		values ('$tipo', '$codigo_comercial', $numero_rv, '$parcela_rv', '$filler', '$quantidade_parcelas_rv', $tipo_transacao, '$data_rv', '$data_pagamento_rv', '$sinal_bruto', $valor_bruto, '$sinal_comissao', $valor_comissao, '$sinal_rejeitado', $valor_rejeitado, '$sinal_liquido', $valor_liquido, $banco, $agencia, '$conta_corrente', $status, $cv_aceitos, $cv_rejeitados, '$id_revenda', '$data_transacao', '$tipo_ajuste', $valor_saque, '$id_antecipacao', $operacao_antecipacao, '$sinal_bruto_antecipacao', $bruto_antecipacao, $bandeira, $numero_unico_rv, $taxa_comissao, $tarifa, $taxa_garantia, '$captura', $numero_logico_terminal, '$codigo_produto', $estabelecimento, '$reservado')";
+	// } else {
+	// 	$inserir = "INSERT INTO detalhe_resumo (tipo, codigo_comercial, numero_rv, parcela_rv, filler, quantidade_parcelas_rv, tipo_transacao, data_rv, data_pagamento_rv, data_envio, sinal_bruto, valor_bruto, sinal_comissao, valor_comissao, sinal_rejeitado, valor_rejeitado, sinal_liquido, valor_liquido, banco, agencia, conta_corrente, status, cv_aceitos, cv_rejeitados, id_revenda, data_transacao, tipo_ajuste, valor_saque, id_antecipacao, operacao_antecipacao, sinal_bruto_antecipacao, bruto_antecipacao, bandeira, numero_unico_rv, taxa_comissao, tarifa, taxa_garantia, captura, numero_logico_terminal, codigo_produto, estabelecimento, reservado)
+	// 		values ('$tipo', '$codigo_comercial', $numero_rv, '$parcela_rv', '$filler', '$quantidade_parcelas_rv', $tipo_transacao, '$data_rv', '$data_pagamento_rv', $data_envio, '$sinal_bruto', $valor_bruto, '$sinal_comissao', $valor_comissao, '$sinal_rejeitado', $valor_rejeitado, '$sinal_liquido', $valor_liquido, $banco, $agencia, '$conta_corrente', $status, $cv_aceitos, $cv_rejeitados, '$id_revenda', '$data_transacao', '$tipo_ajuste', $valor_saque, '$id_antecipacao', $operacao_antecipacao, '$sinal_bruto_antecipacao', $bruto_antecipacao, $bandeira, $numero_unico_rv, $taxa_comissao, $tarifa, $taxa_garantia, '$captura', $numero_logico_terminal, '$codigo_produto', $estabelecimento, '$reservado')";
+	// }
+
+	// $query = mysqli_query($conexao, $inserir) or die("Detalhe resumo: ".mysqli_error($conexao));
 }

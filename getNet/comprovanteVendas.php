@@ -36,40 +36,41 @@ function comprovanteVendasGetNet($linha, $conexao)
 }
 
 
-function comprovanteVendasTivt($linha, $pdo, $conexao, $coluna)
+function comprovanteVendasTivt($linha, $conexao)
 {
-	$coluna->setTipo(substr($linha, 0,1));
-	$coluna->setCodigoComercial(substr($linha, 1,10));
-	$coluna->setNumeroRv(substr($linha, 11,7));
-	$coluna->setNumeroCartao(substr($linha, 18,19));
-	$coluna->setDataTransacao(substr($linha, 37,8));
-	$coluna->setSinalCompraParcela(substr($linha, 45,1));
-	$coluna->setCompraParcela(substr($linha, 46,13));
-	$coluna->setParcelaCv(substr($linha, 59,2));
-	$coluna->setParcelas(substr($linha, 61,2));
-	$coluna->setMotivoRejeicao(substr($linha, 63,3));
-	$coluna->setAutorizacao(substr($linha, 66,6));
-	$coluna->setTid(substr($linha, 72,20));
-	$coluna->setNsu(substr($linha, 92,6));
-	$coluna->setValorTransacao(substr($linha, 98,13));
-	$coluna->setDigitosCartao(substr($linha, 111,2));
-	$coluna->setTotalParcelado(substr($linha, 113,13));
-	$coluna->setProximaParcela(substr($linha, 128,13));
-	$coluna->setNotaFiscal(substr($linha, 139,9));
-	$coluna->setemissor(substr($linha, 148,4));
-	$coluna->setCodigoTerminal(substr($linha, 152,8));
-	$coluna->setTaxaEmbarque(substr($linha, 160,2));
-	$coluna->setCodigoReferencia(substr($linha, 162,20));
-	$coluna->setHoraTransacao(substr($linha, 182,6));
-	$coluna->setIdTransacao(substr($linha, 188,29));
-	$coluna->setIdCieloPromo(substr($linha, 217,1));
-	$coluna->setReservado(substr($linha, 218,32));
+	$tipo = substr($linha, 0,1);
+	$codigo_comercial = substr($linha, 1,10);
+	$numero_rv = substr($linha, 11,7);
+	$numero_cartao = substr($linha, 18,19);
+	$data_transacao = substr($linha, 37,8);
+	$sinal_compra_parcela = substr($linha, 45,1);
+	$compra_parcela = substr($linha, 46,13);
+	$parcela_cv = substr($linha, 59,2);
+	$parcelas = substr($linha, 61,2);
+	$motivo_rejeicao = isNull(substr($linha, 63,3));
+	$autorizacao = substr($linha, 66,6);
+	$tid = substr($linha, 72,20);
+	$nsu = substr($linha, 92,6);
+	$valor_transacao = substr($linha, 98,13);
+	$digitos_cartao = substr($linha, 111,2);
+	$total_parcelado = substr($linha, 113,13);
+	$proxima_parcela = substr($linha, 128,13);
+	$nota_fiscal = substr($linha, 139,9);
+	$emissor = substr($linha, 148,4);
+	$codigo_terminal = substr($linha, 152,8);
+	$taxa_embarque = substr($linha, 160,2);
+	$codigo_referencia = substr($linha, 162,20);
+	$hora_transacao = substr($linha, 182,6);
+	$id_transacao = substr($linha, 188,29);
+	$id_cielo_promo = substr($linha, 217,1);
+	$reservado = substr($linha, 218,32);
 
-	inserirComprovanteTivit($pdo, $conexao, $coluna);
+	$inserir = "INSERT INTO detalhe_comprovante (tipo, codigo_comercial, numero_rv, numero_cartao, data_transacao, sinal_compra_parcela, compra_parcela, parcela_cv, parcelas, motivo_rejeicao, autorizacao, tid, nsu, valor_transacao, digitos_cartao, total_parcelado, proxima_parcela, nota_fiscal, emissor, codigo_terminal, taxa_embarque, codigo_referencia, hora_transacao, id_transacao, id_cielo_promo, reservado)
+	values ('$tipo', '$codigo_comercial', $numero_rv, '$numero_cartao', '$data_transacao', '$sinal_compra_parcela', $compra_parcela, $parcela_cv, $parcelas,
+	'$motivo_rejeicao',
 
-	// $inserir = "INSERT INTO detalhe_comprovante (tipo, codigo_comercial, numero_rv, numero_cartao, data_transacao, sinal_compra_parcela, compra_parcela, parcela_cv, parcelas, motivo_rejeicao, autorizacao, tid, nsu, valor_transacao, digitos_cartao, total_parcelado, proxima_parcela, nota_fiscal, emissor, codigo_terminal, taxa_embarque, codigo_referencia, hora_transacao, id_transacao, id_cielo_promo, reservado)
-	// values ('$tipo', '$codigo_comercial', $numero_rv, '$numero_cartao', '$data_transacao', '$sinal_compra_parcela', $compra_parcela, $parcela_cv, $parcelas,
-	// 	'$motivo_rejeicao','$autorizacao', '$tid', '$nsu', $valor_transacao, $digitos_cartao, $total_parcelado, $proxima_parcela, $nota_fiscal, '$emissor', '$codigo_terminal', '$taxa_embarque', '$codigo_referencia', $hora_transacao, $id_transacao, '$id_cielo_promo', '$reservado')";
 
-	// $query = mysqli_query($conexao, $inserir) or die("Detalhe comprovante".mysqli_error($conexao));
+	'$autorizacao', '$tid', '$nsu', $valor_transacao, $digitos_cartao, $total_parcelado, $proxima_parcela, $nota_fiscal, '$emissor', '$codigo_terminal', '$taxa_embarque', '$codigo_referencia', $hora_transacao, $id_transacao, '$id_cielo_promo', '$reservado')";
+
+	$query = mysqli_query($conexao, $inserir) or die("Detalhe comprovante".mysqli_error($conexao));
 }
