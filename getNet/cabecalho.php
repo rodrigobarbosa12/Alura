@@ -43,4 +43,5 @@ function cabecalhoTivit($linha, $pdo, $conexao, $coluna)
 	$coluna->setReservado(substr($linha, 73,177));
 
 	inserirCabacalhoTivit($pdo, $conexao, $coluna);
+	
 }
