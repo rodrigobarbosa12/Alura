@@ -2,7 +2,8 @@
 
 class Colunas {
 
-        //121 colunas
+        //000 colunas
+        //[a-z]+[(][$a-z]+[,][0-9]+[,][0-9]+[)]
 
 //Cabeçalho
     public $tipo;
@@ -17,6 +18,15 @@ class Colunas {
     public $caixa_postal;
     public $versao_layout;
     public $reservado;
+	public $hora_criacao;
+	public $data_referencia;
+	public $versao_arquivo;
+	public $cnpj;
+    public $codigo_adquirente;
+
+
+
+
 
 //Resumo
     public $codigo_comercial;
@@ -59,14 +69,35 @@ class Colunas {
     public $numero_logico_terminal;
     public $codigo_produto;
 
+	public $taxa_desconto;//*
+	public $rejeitado;//*
+	public $credito;//*
+	public $encargos;//*
+	public $tipo_pagamento;//*
+	public $codigo_estabelecimento;//*
+	public $data_vencimento_rv;//*
+	public $custo_operacao;//*
+	public $liquido_rv_antecipado;//*
+	public $controle_cobranca;//*
+	public $liquido_cobranca;//*
+	public $id_compensacao;//*
+	public $moeda;//*
+	public $baixa_cobranca_servico;//*
+	public $sinal_transacao;//*
+
+
+
 //Comprovante
     public $numero_cartao;
     public $sinal_compra_parcela;
     public $compra_parcela;
     public $parcela_cv;
+    public $valor_parcela;
+    public $data_pagamento;
     public $parcelas;
     public $motivo_rejeicao;
     public $autorizacao;
+    public $centralizador_pagamentos;
     public $tid;
     public $nsu;
     public $valor_transacao;
@@ -75,11 +106,13 @@ class Colunas {
     public $proxima_parcela;
     public $nota_fiscal;
     public $emissor;
+    public $carteira;
     public $codigo_terminal;
     public $taxa_embarque;
     public $codigo_referencia;
     public $hora_transacao;
     public $id_transacao;
+
     public $id_cielo_promo;
 
 //Antecipação
@@ -120,6 +153,15 @@ class Colunas {
     public $valor_liquido_antecipacao;
     public $numero_ro;
 
+
+//Antecipacao
+
+    public $data_operacao;
+    public $antecipacao_bruto;
+    public $texa_mes_operacao;
+    public $canal_antecipacao;
+
+
 //Debitos antecipados
     public $numero_ro_original;
     public $numero_ro_antecipado;
@@ -136,13 +178,30 @@ class Colunas {
     public $sinal_saldo_antecipado;
     public $valor_saldo_antecipado;
 
+
+//Ajustes
+    public $rv_ajustado;
+    public $identificador_ajuste;
+    public $brancos;
+    public $sinal_valor_ajuste;
+    public $valor_ajuste;
+    public $motivo_ajuste;
+    public $data_carta;
+    public $rv_original;
+    public $nsu_adquirente;
+    public $data_transacao_original;
+    public $indicador_tipo_pagamento;
+    public $numero_terminal;
+
+
+
 //Trailer
     public $quantidade_registro;
 
     public $integracoes_id;
 
 
-//Cabeçalho
+//Cabeçalho getters setters
     public function getTipo()
     {
         return $this->tipo;
@@ -241,7 +300,7 @@ class Colunas {
         return $this->reservado = $reservado;
     }
 
-//Resumo
+//Resumo getters setters
     public function getCodigoComercial()
     {
         return $this->codigo_comercial;
@@ -398,6 +457,87 @@ class Colunas {
     {
         return $this->codigo_produto;
     }
+    function getHoraCriacao()
+    {
+        return $this->hora_criacao;
+    }
+    function getDataReferencia()
+    {
+        return $this->data_referencia;
+    }
+    function getVersaoArquivo()
+    {
+        return $this->versao_arquivo;
+    }
+    function getCnpj()
+    {
+        return $this->cnpj;
+    }
+    function getCodigoAdquirente()
+    {
+        return $this->codigo_adquirente;
+    }
+    function getTaxaDesconto()
+    {
+        return $this->taxa_desconto;
+    }
+    function getRejeitado()
+    {
+        return $this->rejeitado;
+    }
+    function getCredito()
+    {
+        return $this->credito;
+    }
+    function getEncargos()
+    {
+        return $this->encargos;
+    }
+    function getTipoPagamento()
+    {
+        return $this->tipo_pagamento;
+    }
+    function getCodigoEstabelecimento()
+    {
+        return $this->codigo_estabelecimento;
+    }
+    function getDataVencimentoRv()
+    {
+        return $this->data_vencimento_rv;
+    }
+    function getCustoOperacao()
+    {
+        return $this->custo_operacao;
+    }
+    function getLiquidoRvAntecipado()
+    {
+        return $this->liquido_rv_antecipado;
+    }
+    function getControleCobranca()
+    {
+        return $this->controle_cobranca;
+    }
+    function getLiquidoCobranca()
+    {
+        return $this->liquido_cobranca;
+    }
+    function getIdCompensacao()
+    {
+        return $this->id_compensacao;
+    }
+    function getMoeda()
+    {
+        return $this->moeda;
+    }
+    function getBaixaCobrancaServico()
+    {
+        return $this->baixa_cobranca_servico;
+    }
+    function getSinalTransacao()
+    {
+        return $this->sinal_transacao;
+    }
+
 
     public function setCodigoComercial($codigo_comercial)
     {
@@ -555,8 +695,91 @@ class Colunas {
     {
         return $this->codigo_produto = $codigo_produto;
     }
+    function setHoraCriacao($hora_criacao)
+    {
+        return $this->hora_criacao = $hora_criacao;
+    }
+    function setDataReferencia($data_referencia)
+    {
+        return $this->data_referencia = $data_referencia;
+    }
+    function setVersaoArquivo($versao_arquivo)
+    {
+        return $this->versao_arquivo = $versao_arquivo;
+    }
+    function setCnpj($cnpj)
+    {
+        return $this->cnpj = $cnpj;
+    }
+    function setCodigoAdquirente($codigo_adquirente)
+    {
+        return $this->codigo_adquirente = $codigo_adquirente;
+    }
+    function setTaxaDesconto($taxa_desconto)
+    {
+        return $this->taxa_desconto = $taxa_desconto;
+    }
+    function setRejeitado($rejeitado)
+    {
+        return $this->rejeitado = $rejeitado;
+    }
+    function setCredito($credito)
+    {
+        return $this->credito = $credito;
+    }
+    function setEncargos($encargos)
+    {
+        return $this->encargos = $encargos;
+    }
+    function setTipoPagamento($tipo_pagamento)
+    {
+        return $this->tipo_pagamento = $tipo_pagamento;
+    }
+    function setCodigoEstabelecimento($codigo_estabelecimento)
+    {
+        return $this->codigo_estabelecimento = $codigo_estabelecimento;
+    }
+    function setDataVencimentoRv($data_vencimento_rv)
+    {
+        return $this->data_vencimento_rv = $data_vencimento_rv;
+    }
+    function setCustoOperacao($custo_operacao)
+    {
+        return $this->custo_operacao = $custo_operacao;
+    }
+    function setLiquidoRvAntecipado($liquido_rv_antecipado)
+    {
+        return $this->liquido_rv_antecipado = $liquido_rv_antecipado;
+    }
+    function setControleCobranca($controle_cobranca)
+    {
+        return $this->controle_cobranca = $controle_cobranca;
+    }
+    function setLiquidoCobranca($liquido_cobranca)
+    {
+        return $this->liquido_cobranca = $liquido_cobranca;
+    }
+    function setIdCompensacao($id_compensacao)
+    {
+        return $this->id_compensacao = $id_compensacao;
+    }
+    function setMoeda($moeda)
+    {
+        return $this->moeda = $moeda;
+    }
+    function setBaixaCobrancaServico($baixa_cobranca_servico)
+    {
+        return $this->baixa_cobranca_servico = $baixa_cobranca_servico;
+    }
+    function setSinalTransacao($sinal_transacao)
+    {
+        return $this->sinal_transacao = $sinal_transacao;
+    }
 
-//Comprovante
+
+
+
+//Comprovante getters setters
 
     function getNumeroCartao()
     {
@@ -574,6 +797,14 @@ class Colunas {
     {
         return $this->parcela_cv;
     }
+    function getValorParcela()
+    {
+        return $this->valor_parcela;
+    }
+    function getDataPagamento()
+    {
+        return $this->data_pagamento;
+    }
     function getParcelas()
     {
         return $this->parcelas;
@@ -585,6 +816,10 @@ class Colunas {
     function getAutorizacao()
     {
         return $this->autorizacao;
+    }
+    function getCentralizadorPagamentos()
+    {
+        return $this->centralizador_pagamentos;
     }
     function getTid()
     {
@@ -617,6 +852,10 @@ class Colunas {
     function getEmissor()
     {
         return $this->emissor;
+    }
+    function getCarteira()
+    {
+        return $this->carteira;
     }
     function getCodigoTerminal()
     {
@@ -660,6 +899,14 @@ class Colunas {
     {
         return $this->parcela_cv = $parcela_cv;
     }
+    function setValorParcela($valor_parcela)
+    {
+        return $this->valor_parcela = $valor_parcela;
+    }
+    function setDataPagamento($data_pagamento)
+    {
+        return $this->data_pagamento = $data_pagamento;
+    }
     function setParcelas($parcelas)
     {
         return $this->parcelas = $parcelas;
@@ -671,6 +918,10 @@ class Colunas {
     function setAutorizacao($autorizacao)
     {
         return $this->autorizacao = $autorizacao;
+    }
+    function setCentralizadorPagamentos($centralizador_pagamentos)
+    {
+        return $this->centralizador_pagamentos = $centralizador_pagamentos;
     }
     function setTid($tid)
     {
@@ -704,6 +955,10 @@ class Colunas {
     {
         return $this->emissor = $emissor;
     }
+    function setCarteira($carteira)
+    {
+        return $this->carteira = $carteira;
+    }
     function setCodigoTerminal($codigo_terminal)
     {
         return $this->codigo_terminal = $codigo_terminal;
@@ -729,7 +984,7 @@ class Colunas {
         return $this->id_cielo_promo = $id_cielo_promo;
     }
 
-//Antecipacao
+//Antecipacao getters setters
 
     function getDataCredito()
     {
@@ -952,7 +1207,7 @@ class Colunas {
         return $this->liquido_antecipacao = $liquido_antecipacao;
     }
 
-//Ros antecipados
+//Ros antecipados getters setters
 
     function getNumeroOperacao()
     {
@@ -1003,7 +1258,45 @@ class Colunas {
         return $this->numero_ro;
     }
 
-//Debitos antecipados
+
+//Antecipacao getters setters
+    function getDataOperacao()
+    {
+        return $this->data_operacao;
+    }
+    function getAntecipacaoBruto()
+    {
+        return $this->antecipacao_bruto;
+    }
+    function getTexaMesOperacao()
+    {
+        return $this->texa_mes_operacao;
+    }
+    function getCanalAntecipacao()
+    {
+        return $this->canal_antecipacao;
+    }
+
+
+    function setDataOperacao($data_operacao)
+    {
+        return $this->data_operacao = $data_operacao;
+    }
+    function setAntecipacaoBruto($antecipacao_bruto)
+    {
+        return $this->antecipacao_bruto = $antecipacao_bruto;
+    }
+    function setTexaMesOperacao($texa_mes_operacao)
+    {
+        return $this->texa_mes_operacao = $texa_mes_operacao;
+    }
+    function setCanalAntecipacao($canal_antecipacao)
+    {
+        return $this->canal_antecipacao = $canal_antecipacao;
+    }
+
+
+//Debitos antecipados getters setters
 
     function getNumeroRoOriginal()
     {
@@ -1120,7 +1413,112 @@ class Colunas {
         return $this->valor_saldo_antecipado = $valor_saldo_antecipado;
     }
 
-//Trailer
+
+
+//Ajustes getters setters
+
+    function getRvAjustado()
+    {
+        return $this->rv_ajustado;
+    }
+    function getIdentificadorAjuste()
+    {
+        return $this->identificador_ajuste;
+    }
+    function getBrancos()
+    {
+        return $this->brancos;
+    }
+    function getSinalValorAjuste()
+    {
+        return $this->sinal_valor_ajuste;
+    }
+    function getValorAjuste()
+    {
+        return $this->valor_ajuste;
+    }
+    function getMotivoAjuste()
+    {
+        return $this->motivo_ajuste;
+    }
+    function getDataCarta()
+    {
+        return $this->data_carta;
+    }
+    function getRvOriginal()
+    {
+        return $this->rv_original;
+    }
+    function getNsuAdquirente()
+    {
+        return $this->nsu_adquirente;
+    }
+    function getDataTransacaoOriginal()
+    {
+        return $this->data_transacao_original;
+    }
+    function getIndicadorTipoPagamento()
+    {
+        return $this->indicador_tipo_pagamento;
+    }
+    function getNumeroTerminal()
+    {
+        return $this->numero_terminal;
+    }
+
+
+    function setRvAjustado($rv_ajustado)
+    {
+        return $this->rv_ajustado = $rv_ajustado;
+    }
+    function setIdentificadorAjuste($identificador_ajuste)
+    {
+        return $this->identificador_ajuste = $identificador_ajuste;
+    }
+    function setBrancos($brancos)
+    {
+        return $this->brancos = $brancos;
+    }
+    function setSinalValorAjuste($sinal_valor_ajuste)
+    {
+        return $this->sinal_valor_ajuste = $sinal_valor_ajuste;
+    }
+    function setValorAjuste($valor_ajuste)
+    {
+        return $this->valor_ajuste = $valor_ajuste;
+    }
+    function setMotivoAjuste($motivo_ajuste)
+    {
+        return $this->motivo_ajuste = $motivo_ajuste;
+    }
+    function setDataCarta($data_carta)
+    {
+        return $this->data_carta = $data_carta;
+    }
+    function setRvOriginal($rv_original)
+    {
+        return $this->rv_original = $rv_original;
+    }
+    function setNsuAdquirente($nsu_adquirente)
+    {
+        return $this->nsu_adquirente = $nsu_adquirente;
+    }
+    function setDataTransacaoOriginal($data_transacao_original)
+    {
+        return $this->data_transacao_original = $data_transacao_original;
+    }
+    function setIndicadorTipoPagamento($indicador_tipo_pagamento)
+    {
+        return $this->indicador_tipo_pagamento = $indicador_tipo_pagamento;
+    }
+    function setNumeroTerminal($numero_terminal)
+    {
+        return $this->numero_terminal = $numero_terminal;
+    }
+
+
+
+//Trailer getters setters
     function getQuantidadeRegistro()
     {
         return $this->quantidade_registro;
@@ -1140,6 +1538,7 @@ class Colunas {
     {
         return $this->integracoes_id = $integracoes_id;
     }
+
 
 
 }

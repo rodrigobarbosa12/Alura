@@ -1,56 +1,47 @@
 <?php
 
-function resumoVendasGetNet($linha, $conexao)
+function resumoVendasGetNet($linha, $pdo, $coluna)
 {
-	$tipo = substr($linha, 0,1);
-	$codigo_comercial = substr($linha, 1,15);
-	$codigo_produto = substr($linha, 16,2);
-	$captura = substr($linha, 18,3);
-	$numero_rv = substr($linha, 21,9);
-	$data_rv = convertData($data_rv = substr($linha, 30,8));
-	$data_pagamento_rv = convertData(substr($linha, 38,8));
-	$banco = substr($linha, 46,3);
-	$agencia = substr($linha, 49,6);
-	$conta_corrente = substr($linha, 55,11);
-	$cv_aceitos = substr($linha, 66,9);
-	$cv_rejeitados = substr($linha, 75,9);
-	$valor_bruto = substr($linha, 84,12);
-	$valor_liquido = substr($linha, 96,12);
-	$tarifa = substr($linha, 108,12);
-	$taxa_desconto = substr($linha, 120,12);
-	$rejeitado = substr($linha, 132,12);
-	$credito = substr($linha, 144,12);
-	$encargos = substr($linha, 156,12);
-	$tipo_pagamento = substr($linha, 168,2);
-	$parcela_rv = substr($linha, 170,2);
-	$quantidade_parcelas_rv = substr($linha, 173,2);
-	$codigo_estabelecimento = substr($linha, 174,15);
-	$operacao_antecipacao = substr($linha, 189,15);
-	$data_vencimento_rv = convertData(substr($linha, 204,8));
-	$custo_operacao = substr($linha, 212,12);
-	$liquido_rv_antecipado = substr($linha, 224,12);
-	$controle_cobranca = substr($linha, 236,18); //Fora do intervalo
-	$liquido_cobranca = substr($linha, 254,12);
-	$id_compensacao = substr($linha, 266,15);
-	$moeda = substr($linha, 281,3);
-	$baixa_cobranca_servico = substr($linha, 284,1);
-	$sinal_transacao = substr($linha, 285,1);
-	$reservado = substr($linha, 286,144);
-	$integracoes_id = 2;
+	$coluna->setTipo(substr($linha, 0,1));
+	$coluna->setCodigoComercial(substr($linha, 1,15));
+	$coluna->setCodigoProduto(substr($linha, 16,2));
+	$coluna->setCaptura(substr($linha, 18,3));
+	$coluna->setNumeroRv(substr($linha, 21,9));
+	$coluna->setDataRv(convertData(substr($linha, 30,8)));
+	$coluna->setDataPagamentoRv(convertData(substr($linha, 38,8)));
+	$coluna->setBanco(substr($linha, 46,3));
+	$coluna->setAgencia(substr($linha, 49,6));
+	$coluna->setContaCorrente(substr($linha, 55,11));
+	$coluna->setCvAceitos(substr($linha, 66,9));
+	$coluna->setCvRejeitados(substr($linha, 75,9));
+	$coluna->setValorBruto(substr($linha, 84,12));
+	$coluna->setValorLiquido(substr($linha, 96,12));
+	$coluna->setTarifa(substr($linha, 108,12));
+	$coluna->setTaxaDesconto(substr($linha, 120,12));
+	$coluna->setRejeitado(substr($linha, 132,12));
+	$coluna->setCredito(substr($linha, 144,12));
+	$coluna->setEncargos(substr($linha, 156,12));
+	$coluna->setTipoPagamento(substr($linha, 168,2));
+	$coluna->setParcelaRv(substr($linha, 170,2));
+	$coluna->setQuantidadeParcelasRv(substr($linha, 173,2));
+	$coluna->setCodigoEstabelecimento(substr($linha, 174,15));
+	$coluna->setOperacaoAntecipacao(substr($linha, 189,15));
+	$coluna->setDataVencimentoRv(convertData(substr($linha, 204,8)));
+	$coluna->setCustoOperacao(substr($linha, 212,12));
+	$coluna->setLiquidoRvAntecipado(substr($linha, 224,12));
+	$coluna->setControleCobranca(substr($linha, 236,18)); //Fora do intervalo
+	$coluna->setLiquidoCobranca(substr($linha, 254,12));
+	$coluna->setIdCompensacao(substr($linha, 266,15));
+	$coluna->setMoeda(substr($linha, 281,3));
+	$coluna->setBaixaCobrancaServico(substr($linha, 284,1));
+	$coluna->setSinalTransacao(substr($linha, 285,1));
+	$coluna->setReservado(substr($linha, 286,144));
 
-	if (!$data_vencimento_rv){
-		$inserir = "INSERT INTO detalhe_resumo (tipo, codigo_comercial, codigo_produto, captura, numero_rv, data_rv, data_pagamento_rv, banco, agencia, conta_corrente, cv_aceitos, cv_rejeitados, valor_bruto, valor_liquido, tarifa, taxa_desconto, rejeitado, credito, encargos, tipo_pagamento, parcela_rv, quantidade_parcelas_rv, codigo_estabelecimento, operacao_antecipacao, custo_operacao, liquido_rv_antecipado, controle_cobranca, liquido_cobranca, id_compensacao, moeda, baixa_cobranca_servico, sinal_transacao, reservado, integracoes_id)
-			VALUES ('$tipo', '$codigo_comercial', '$codigo_produto', '$captura', $numero_rv, '$data_rv', '$data_pagamento_rv', $banco, $agencia, $conta_corrente, $cv_aceitos, $cv_rejeitados, $valor_bruto, $valor_liquido, $tarifa, $taxa_desconto, $rejeitado, $credito, $encargos, '$tipo_pagamento', $parcela_rv, $quantidade_parcelas_rv, '$codigo_estabelecimento', $operacao_antecipacao, $custo_operacao, $liquido_rv_antecipado, $controle_cobranca, $liquido_cobranca, $id_compensacao, $moeda, '$baixa_cobranca_servico', '$sinal_transacao', '$reservado', $integracoes_id)";
-	} else{
-		$inserir = "INSERT INTO detalhe_resumo (tipo, codigo_comercial, codigo_produto, captura, numero_rv, data_rv, data_pagamento_rv, banco, agencia, conta_corrente, cv_aceitos, cv_rejeitados, valor_bruto, valor_liquido, tarifa, taxa_desconto, rejeitado, credito, encargos, tipo_pagamento, parcela_rv, quantidade_parcelas_rv, codigo_estabelecimento, operacao_antecipacao, data_vencimento_rv, custo_operacao, liquido_rv_antecipado, controle_cobranca, liquido_cobranca, id_compensacao, moeda, baixa_cobranca_servico, sinal_transacao, reservado, integracoes_id)
-			VALUES ('$tipo', '$codigo_comercial', '$codigo_produto', '$captura', $numero_rv, '$data_rv', '$data_pagamento_rv', $banco, $agencia, $conta_corrente, $cv_aceitos, $cv_rejeitados, $valor_bruto, $valor_liquido, $tarifa, $taxa_desconto, $rejeitado, $credito, $encargos, '$tipo_pagamento', $parcela_rv, $quantidade_parcelas_rv, '$codigo_estabelecimento', $operacao_antecipacao, '$data_vencimento_rv', $custo_operacao, $liquido_rv_antecipado, $controle_cobranca, $liquido_cobranca, $id_compensacao, $moeda, '$baixa_cobranca_servico', '$sinal_transacao', '$reservado', $integracoes_id)";
-	}
-
-	$query = mysqli_query($conexao, $inserir) or die ("Resumo de vendas ".mysqli_error($conexao));
+	inserirResumoGetNet($pdo, $coluna);
 }
 
 
-function resumoVendasTivt($linha, $pdo, $conexao, $coluna)
+function resumoVendasTivt($linha, $pdo, $coluna)
 {
 	$coluna->setTipo(substr($linha, 0,1));
 	$coluna->setCodigoComercial(substr($linha, 1,10));
@@ -59,9 +50,9 @@ function resumoVendasTivt($linha, $pdo, $conexao, $coluna)
 	$coluna->setFiller(substr($linha, 20,1));
 	$coluna->setQuantidadeParcelasRv(substr($linha, 21,2));
 	$coluna->setTipoTransacao(substr($linha, 23,2));
-	$coluna->setDataRv(substr($linha, 25,6));
-	$coluna->setDataPagamentoRv(substr($linha, 31,6));
-	$coluna->setDataEnvio(substr($linha, 37,6));
+	$coluna->setDataRv(convertData(substr($linha, 25,6)));
+	$coluna->setDataPagamentoRv(convertData(substr($linha, 31,6)));
+	$coluna->setDataEnvio(convertData(substr($linha, 37,6)));
 	$coluna->setSinalBruto(substr($linha, 43,1));
 	$coluna->setValorBruto(substr($linha, 44,13));
 	$coluna->setSinalComissao(substr($linha, 57,1));
@@ -77,7 +68,7 @@ function resumoVendasTivt($linha, $pdo, $conexao, $coluna)
 	$coluna->setCvAceitos(substr($linha, 124,6));
 	$coluna->setCvRejeitados(substr($linha, 132,6));
 	$coluna->setIdRevenda(substr($linha, 138,1));
-	$coluna->setDataTransacao(substr($linha, 139,6));
+	$coluna->setDataTransacao(convertData(substr($linha, 139,6)));
 	$coluna->setTipoAjuste(substr($linha, 145,2));
 	$coluna->setValorSaque(substr($linha, 147,13));
 	$coluna->setIdAntecipacao(substr($linha, 160,1));
@@ -95,6 +86,5 @@ function resumoVendasTivt($linha, $pdo, $conexao, $coluna)
 	$coluna->setEstabelecimento(substr($linha, 235,10));
 	$coluna->setReservado(substr($linha, 245,5));
 
-	inserirResumoTivit($pdo, $conexao, $coluna);
-
+	inserirResumoTivit($pdo, $coluna);
 }

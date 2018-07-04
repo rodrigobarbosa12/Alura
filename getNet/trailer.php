@@ -1,24 +1,20 @@
 <?php
 
-function trailerGetNet($linha, $conexao)
+function trailerGetNet($linha, $pdo, $coluna)
 {
-	$tipo = substr($linha, 0,1);
-	$quantidade_registro = substr($linha, 1,9);
-	$reservado = substr($linha, 10,390);
-	$integracoes_id = 2;
-	$inserir = "INSERT INTO trailer_arquivo (tipo, quantidade_registro, reservado, integracoes_id) VALUES ('$tipo', $quantidade_registro, '$reservado', $integracoes_id)";
+	$coluna->setTipo(substr($linha, 0,1));
+	$coluna->setQuantidadeRegistro(substr($linha, 1,9));
+	$coluna->setReservado(substr($linha, 10,390));
 
-	$query = mysqli_query($conexao, $inserir) or die('Trailer'.mysqli_error($conexao));
+	inserirTrailerGetNet($pdo, $coluna);
 }
 
 
-function trailerTivit($linha, $pdo, $conexao, $coluna)
+function trailerTivit($linha, $pdo, $coluna)
 {
-
 	$coluna->setTipo(substr($linha, 0,1));
 	$coluna->setQuantidadeRegistro(substr($linha, 1,11));
 	$coluna->setReservado(substr($linha, 12,238));
 
-	inserirTrailerTivit($pdo, $conexao, $coluna);
-
+	inserirTrailerTivit($pdo, $coluna);
 }

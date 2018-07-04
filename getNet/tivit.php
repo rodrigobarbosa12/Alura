@@ -1,6 +1,9 @@
 <?php
 require_once("conexao.php");
+require_once("conConciliadora.php");
+require_once("util.php");
 require_once("convert.php");
+require_once("queryTivit.php");
 require_once("cabecalho.php");
 require_once("resumoVendas.php");
 require_once("comprovanteVendas.php");
@@ -8,78 +11,77 @@ require_once("antecipacao.php");
 require_once("rosAntecipadosTivit.php");
 require_once("debitosAntecipadosTivit.php");
 require_once("trailer.php");
-require_once("query.php");
 require_once("Colunas.php");
 
-/**
- *  pega os extratos a partir de um diretorio e faz backup
- */
+
+// Pega os extratos a partir de um diretorio e faz backup
+
 // $diretorio = 'extrato-tivit/';
 // $listaDeArquivos = shell_exec('ls extrato-tivit');
 // $arquivos = preg_split('/\s+/', trim($listaDeArquivos));
 
 // foreach ($arquivos as $arquivo) {
 // 	$extratos = file($diretorio.$arquivo);
-// 	getRegistrosTivit($extratos, $conexao);
+// 	getRegistrosTivit($extratos, $pdo);
 
 // 	$backup = 'backup-tivit/'.$arquivo;
 // 	copy($diretorio.$arquivo, $backup);
 // 	unlink($diretorio.$arquivo);
 // }
 
+$coluna = new Colunas();
 
+$select = selectTivit($pdoConciliadora);
 
-$select = "SELECT * FROM conciliadora.arquivos where conteudo like '%CIELO%'";
+	while ($rows = $select->fetch(PDO::FETCH_ASSOC)) {
 
-$query = mysqli_query($conConciliadora, $select) or die('Erro ao buscar');
-
-	while ($rows = mysqli_fetch_assoc($query)) {
-
+			$arquivo = $rows['arquivo'];
 			$row[] = $rows['conteudo'];
+			traduzidoTivit($pdoConciliadora, $arquivo);
 	}
 
-	$coluna = new Colunas();
-
+	//Faz quebra de linha do extrato
 	foreach ($row as $key => $linhas) {
 
 		$linha[$key] = $linhas;
 		$extratos = preg_split('/\n/', trim($linha[$key]));
-		getRegistrosTivit($extratos, $pdo, $conexao, $coluna);
+		getRegistrosTivit($extratos, $pdo, $coluna);
 
 	}
 
+	//Percorre as linhas do extrato
+function getRegistrosTivit($extratos, $pdo, $coluna){
 
-function getRegistrosTivit($extratos, $pdo, $conexao, $coluna){
 	foreach ($extratos as $extrato) {
-		salvar($extrato, $pdo, $conexao, $coluna);
+		salvar($extrato, $pdo, $coluna);
 	}
 }
 
-function salvar($extrato, $pdo, $conexao, $coluna)
+function salvar($extrato, $pdo, $coluna)
 {
 	$tipo_registro = substr($extrato, 0, 1);
 
 	switch ($tipo_registro) {
 		case 0:
-			cabecalhoTivit($extrato, $pdo, $conexao, $coluna);
+			cabecalhoTivit($extrato, $pdo, $coluna);
 			break;
 		case 1:
-			resumoVendasTivt($extrato, $pdo, $conexao, $coluna);
+			resumoVendasTivt($extrato, $pdo, $coluna);
 			break;
 		case 2:
-			comprovanteVendasTivt($extrato, $pdo, $conexao, $coluna);
+			comprovanteVendasTivt($extrato, $pdo, $coluna);
 			break;
 		case 5:
-			antecipacaoTivit($extrato, $pdo, $conexao, $coluna);
+			antecipacaoTivit($extrato, $pdo, $coluna);
 			break;
 		case 6:
-			rosAntecipados($extrato, $pdo, $conexao, $coluna);
+			rosAntecipados($extrato, $pdo, $coluna);
 			break;
 		case 7:
-			debitosAntecipados($extrato, $pdo, $conexao, $coluna);
+			debitosAntecipados($extrato, $pdo, $coluna);
 			break;
 		case 9:
-			trailerTivit($extrato, $pdo, $conexao, $coluna);
+			trailerTivit($extrato, $pdo, $coluna);
 			break;
 	}
 }

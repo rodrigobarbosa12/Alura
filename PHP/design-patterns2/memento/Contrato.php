@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Contrato {
 
@@ -20,7 +20,7 @@ class Contrato {
         public function getCliente(){
             return $this->cliente;
         }
-        public function getTipo(){
+        public function getTipoConta(){
             return $this->tipo;
         }
 
@@ -31,7 +31,7 @@ class Contrato {
         public function setCliente($cliente){
             $this->cliente = $cliente;
         }
-        public function setTipo($tipo){
+        public function setTipoConta($tipo){
             $this->tipo = $tipo;
         }
 

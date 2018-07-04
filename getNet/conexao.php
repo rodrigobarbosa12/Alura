@@ -1,8 +1,6 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "root", "123456", "mydb");
-
-$conConciliadora = mysqli_connect("52.67.24.37", "root", "amdsdl7586", "conciliadora");
+// $conexao = mysqli_connect("localhost", "root", "123456", "mydb");
 
 $host = 'localhost';
 $usuario = 'root';
@@ -18,15 +16,3 @@ $dsn = "mysql:host={$host};port=3306;dbname={$banco}";
         die($e->getMessage());
     }
 
-
-// $host2 = '52.67.24.37';
-// $usuario2 = 'root';
-// $senha2 = 'amdsdl7586';
-// $banco2 = 'conciliadora';
-// $dsn2 = "mysql:host={$host2};port=3306;dbname={$banco2}";
-
-//     try{
-//         $pdo2 = new PDO($dsn2, $usuario2, $senha2);
-//     } catch (PDOException $e){
-//         die($e->getMessage());
-//     }

@@ -1,12 +1,12 @@
 <?php
 
 
-function rosAntecipados($linha, $pdo, $conexao, $coluna)
+function rosAntecipados($linha, $pdo, $coluna)
 {
 	$coluna->setTipo(substr($linha, 0,1));
 	$coluna->setCodigoComercial(substr($linha, 1,10));
 	$coluna->setNumeroOperacao(substr($linha, 11,9));
-	$coluna->setDataVencimentoRo(substr($linha, 20,8));
+	$coluna->setDataVencimentoRo(convertData(substr($linha, 20,8)));
 	$coluna->setNumeroRoAntecipado(substr($linha, 28,7));
 	$coluna->setParcelaAntecipada(substr($linha, 35,2));
 	$coluna->setTotalParcelas(substr($linha, 37,2));
@@ -22,6 +22,5 @@ function rosAntecipados($linha, $pdo, $conexao, $coluna)
 	$coluna->setNumeroRo(substr($linha, 98,22));
 	$coluna->setReservado(substr($linha, 120,130));
 
-	inserirRosAntecipadosTivit($pdo, $conexao, $coluna);
-	
+	inserirRosAntecipadosTivit($pdo, $coluna);
 }
