@@ -1,42 +1,42 @@
-
-class NegociacoesView extends View{
-
-    constructor(elemento){ // Esse codigo não é necessario
+class NegociacoesView extends View {
+    
+    constructor(elemento) {
+        
         super(elemento);
     }
-
-	template(model){
-
-	return `
-    	<table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th>DATA</th>
-                        <th>QUANTIDADE</th>
-                        <th>VALOR</th>
-                        <th>VOLUME</th>
-                    </tr>
-                </thead>
-
+    
+    template(model) {
+        
+        return `
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>DATA</th>
+                    <th>QUANTIDADE</th>
+                    <th>VALOR</th>
+                    <th>VOLUME</th>
+                </tr>
+            </thead>
+        
             <tbody>
-                ${model.negociacoes.map(negociacao => `
-
-                        <tr>
-                            <td>${DataHelper.dataParaTexto(negociacao.data)}</td>
-                            <td>${negociacao.quantidade}</td>
-                            <td>${negociacao.valor}</td>
-                            <td>${negociacao.volume}</td>
-                            <td>${model.volumeTotal}</td>
-                        </tr>
-
-                    `).join('')}
+                ${model.negociacoes.map(n => `
+                    
+                    <tr>
+                        <td>${DateHelper.dataParaTexto(n.data)}</td>
+                        <td>${n.quantidade}</td>
+                        <td>${n.valor}</td>
+                        <td>${n.volume}</td>
+                    </tr>
+                    
+                `).join('')}                
             </tbody>
-
+                  
             <tfoot>
-                <td colspan="3">Total</td>
-                <td>${model.negociacoes.reduce((total, negociacao) => total + negociacao.volume, 0.0)}</td>
+                <td colspan="3">TOTAL:</td>
+                <td>${model.volumeTotal}</td>
             </tfoot>
+            
         </table>
-	`;
+        `;
     }
 }

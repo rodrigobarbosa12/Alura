@@ -7,7 +7,7 @@
 # 3 - Endereços sob seu domínio
 # 4 - O cliente pede e o servidor responde
 # 5 - Depurando a requisição HTTP
-# 6 -  Parâmetros da requisição 
+# 6 -  Parâmetros da requisição
 # 7 - Serviços na web com REST
 # 8 - HTTP2 - Por uma web mais eficiente
 
@@ -26,7 +26,7 @@
 #11 - Subindo a aplicação para um Servidor
 
 # PHP e MySQL II: Cookies, sessões e mais recursos
-#Aulas; 
+#Aulas;
 #1 - Uma ação de login
 #2 - Efetuando o login e cookies
 #3 - Protegendo o acesso as páginas, refatorando e extraindo a lógica
@@ -39,7 +39,7 @@
 #10 - Envio de email via SMTP
 
 # MySQL I: Iniciando suas consultas
-#Aulas; 
+#Aulas;
 #1 - Consultando os dados
 #2 - Atualizando e excluindo dados
 #3 - Alterando e restringindo o formato das nossas tabelas
@@ -47,16 +47,16 @@
 #5 - Juntando dados de várias tabelas
 
 # PHP I: Orientação a objetos com sua linguagem preferida
-#Aulas; 
+#Aulas;
 #1 - Classes e Objetos
 #2 - Evoluindo a listagem de produtos
-#3 - Métodos 
+#3 - Métodos
 #4 - Encapsulamento
 #5 - Comparando objetos
-#6 - Magic methods 
+#6 - Magic methods
 
-# PHP II: Avançando com Orientação a objetos  
-#Aulas; 
+# PHP II: Avançando com Orientação a objetos
+#Aulas;
 #1 - Autoloading de classes
 #2 - DAO - Data Access Object
 #3 - Herança
@@ -104,9 +104,10 @@
 #1 - Começando com testes de unidade
 #2 - Praticando Test-Driven Development (TDD)
 #3 - Testando o que realmente é necessário
-#4 - Cuidando dos seus testes 
+#4 - Cuidando dos seus testes
 #5 - Testando exceções
  Reiniciando o jogo
+
 
 
 # ---       CARREIRA DESENVOLVEDOR JAVASCRIPT      ---
@@ -146,19 +147,29 @@
 # ---           CARREIRA ENGENHEIRO JAVASCRIPT      ---
 
 # JavaScript avançado I: ES6, orientação a objetos e padrões de projetos
-#Aulas; 
+#Aulas;
 #1 - Prólogo: regras, código e manutenção
 #2 - Especificando uma Negociação
 #3 - A ligação entre as ações do usuário e o modelo
 #4 - Lidar com data é trabalhoso? Chame um ajudante!
 #5 - Temos o modelo, mas e a view?
-#6 - Generalizando a solução da nossa View 
+#6 - Generalizando a solução da nossa View
 
 # JavaScript Avançado II: ES6, orientação a objetos e padrões de projetos
-#Aulas; 
+#Aulas;
 #1 - Como saber quando o modelo mudou?
 #2 - Existe modelo mentiroso? O padrão de projeto Proxy!
 #3 - E se alguém criasse nossos proxies? O Padrão de Projeto Factory
+#4 - Importando negociações
+#5 - Combatendo Callback Hell com Promises
+#6 - Considerações finais e exercícios bônus
+
+# JavaScript Avançado III: ES6, orientação a objetos e padrões de projetos
+#Aulas;
+#1 - 
+#2 -
+#3 -
 #4 -
-#5 -
-#6 -
+#5 - 
+#6 - 
+#7 -

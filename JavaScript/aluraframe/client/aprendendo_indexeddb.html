@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aprendendo IndexdDB</title>
+</head>
+<body>
+	<script>
+
+		var connection;
+
+		var openRequest = window.indexedDB.open('aluraframe', 2); 
+
+		openRequest.onupgradeneeded = e => {
+			console.log('Cria ou altera um banco existente.');
+
+			var minhaConecction = e.target.result;
+			minhaConecction.createObjectStore('negociacoes');
+		}
+
+		openRequest.onsuccess = e => {
+			console.log('Conexão obtida com sucesso.');
+			connection = e.target.result;
+		}
+
+		openRequest.onerror = e => {
+			console.log(e.target.error);
+		}
+
+
+	</script>
+</body>
+</html>
