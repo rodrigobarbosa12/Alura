@@ -166,10 +166,19 @@
 
 # JavaScript Avançado III: ES6, orientação a objetos e padrões de projetos
 #Aulas;
-#1 - 
+#1 -
 #2 -
 #3 -
 #4 -
-#5 - 
-#6 - 
+#5 -
+#6 -
 #7 -
+
+# Webpack: Manipulando módulos na sua webapp
+#Aulas;
+#1 -
+#2 -
+#3 -
+#4 -
+#5 -
+#6 -
