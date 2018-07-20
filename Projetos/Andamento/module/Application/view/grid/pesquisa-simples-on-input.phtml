@@ -1,0 +1,20 @@
+<form class="grid__filtro" id="formulario<?= $this->sufixo ?>">
+    <select name="coluna" class="form-control" id="coluna<?= $this->sufixo ?>" style="display: none">
+        <option value="" data-tipo="string">
+            Todas
+        </option>
+    </select>
+    <select name="opcao" class="form-control" id="opcao<?= $this->sufixo ?>" style="display: none">
+        <option value="contendo" data-tipo="string" selected="seleted">
+            Contendo
+        </option>
+    </select>
+    <input
+        type="search"
+        name="valor"
+        class="form-control"
+        id="valor<?= $this->sufixo ?>"
+        placeholder="Digite aqui..."
+        style="margin-bottom: 0px !important;"
+        required="required" />
+</form>
