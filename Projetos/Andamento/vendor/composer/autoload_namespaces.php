@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ZfcUser' => array($vendorDir . '/zf-commons/zfc-user/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
 );

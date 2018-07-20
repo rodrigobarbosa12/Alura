@@ -1,0 +1,42 @@
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th
+                    class="sorting_desc"
+                    data-ordem="desc" data-coluna="id">
+                    Header id
+                </th>
+                <th
+                    class="sorting"
+                    data-coluna="nome">
+                    Tipo
+                </th>
+                <th
+                    class="sorting"
+                    data-coluna="nome">
+                    Código comercial
+                </th>
+                <th
+                    class="sorting"
+                    data-coluna="nome">
+                    Número do cartão
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <script type="text/template">
+                {{#data}}
+                <tr class="m-datatable__row">
+                    <td>{{id}}</td>
+                    <td>{{tipo}}</td>
+                    <td>{{codigo_comercial}}</td>
+                    <td>{{numero_cartao}}</td>
+                    <td style="white-space: nowrap;">
+                    </td>
+                </tr>
+                {{/data}}
+            </script>
+        </tbody>
+    </table>
+</div>

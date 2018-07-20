@@ -2,6 +2,7 @@
 
 namespace Resumo;
 
+use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\Mvc\Controller\LazyControllerAbstractFactory;
 
@@ -11,13 +12,10 @@ return [
             'resumo' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route' => '/resumo[/:id]',
+                    'route' => '/resumo',
                     'defaults' => [
-                        'authenticate' => true,
                         'controller' => Controller\IndexController::class,
-                    ],
-                    'contraints' => [
-                        'id' => '[0-9]+'
+                        'authenticate' => true,
                     ],
                 ],
             ],
@@ -25,7 +23,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => LazyControllerAbstractFactory::class
+            Controller\IndexController::class => LazyControllerAbstractFactory::class,
         ],
     ],
     'view_manager' => [

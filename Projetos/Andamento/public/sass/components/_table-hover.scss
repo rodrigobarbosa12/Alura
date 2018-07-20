@@ -1,0 +1,14 @@
+$cor-produto-selecionado: #e7f4ff !default;
+$cor-hover-produto: #fffced !default;
+
+.table-hover {
+    tbody {
+        tr.selecionado {
+            background-color: $cor-produto-selecionado !important;
+        }
+
+        tr:hover {
+            background-color: $cor-hover-produto;
+        }
+    }
+}

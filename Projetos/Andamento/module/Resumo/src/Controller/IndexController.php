@@ -2,46 +2,35 @@
 
 namespace Resumo\Controller;
 
-use Application\Controller\AbstractRestfulCorsController;
-use Application\Service\JsonWebToken;
-use Resumo\Service\Resumo;
-use Zend\View\Model\JsonModel;
+use Application\Service\APIConciliadora;
+use Zend\Mvc\Controller\AbstractRestfulController;
+use Zend\View\Model\ViewModel;
 
-
-class IndexController extends AbstractRestfulCorsController
+class IndexController extends AbstractRestfulController
 {
-
-  /**
-     * @var Resumo
-     */
-    protected $service;
-
     /**
-     * @var JsonWebToken
+     * @var APIConciliadora
      */
-    protected $serviceJsonToken;
+    private $api;
 
-    public function __construct(Resumo $service)
+    public function __construct(APIConciliadora $api)
     {
-        $this->service = $service;
+        $this->api = $api;
+    }
+
+    public function options()
+    {
+        return new JsonModel();
     }
 
     public function getList()
     {
-        try {
+        $this->layout('layout/admin');
 
-            $pequisa = new \Resumo\Entity\Pesquisa($this->params()->fromQuery());
+        $resumo = $this->api->getResumo();
 
-            return new JsonModel([
-                'data' => $this->resultSetToArray($this->service->selecionar($pequisa)),
-                'count' => $this->service->contar($pequisa)->toArray()
-            ]);
-            // var_dump('<pre>', $return);
-            // die();
-        } catch (ExceptionInterface $err) {
-            $this->getResponse()->setStatusCode($err->getCode() ?: 400);
-            return new JsonModel(['message' => $err->getMessage()]);
-        }
+        return [
+            'resumo' => $resumo,
+        ];
     }
-
 }

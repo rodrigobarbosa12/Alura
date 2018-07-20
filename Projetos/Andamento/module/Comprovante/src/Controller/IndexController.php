@@ -2,44 +2,35 @@
 
 namespace Comprovante\Controller;
 
-use Application\Controller\AbstractRestfulCorsController;
-use Application\Service\JsonWebToken;
-use Comprovante\Service\Comprovante;
-use Zend\View\Model\JsonModel;
+use Application\Service\APIConciliadora;
+use Zend\Mvc\Controller\AbstractRestfulController;
+use Zend\View\Model\ViewModel;
 
-
-class IndexController extends AbstractRestfulCorsController
+class IndexController extends AbstractRestfulController
 {
-
-  /**
-     * @var Comprovante
-     */
-    protected $service;
-
     /**
-     * @var JsonWebToken
+     * @var APIConciliadora
      */
-    protected $serviceJsonToken;
+    private $api;
 
-    public function __construct(Comprovante $service)
+    public function __construct(APIConciliadora $api)
     {
-        $this->service = $service;
+        $this->api = $api;
+    }
+
+    public function options()
+    {
+        return new JsonModel();
     }
 
     public function getList()
     {
-        try {
+        $this->layout('layout/admin');
 
-            $pequisa = new \Comprovante\Entity\Pesquisa($this->params()->fromQuery());
+        $comprovante = $this->api->getComprovante();
 
-            return new JsonModel([
-                'data' => $this->resultSetToArray($this->service->selecionar($pequisa)),
-                'count' => $this->service->contar($pequisa)->toArray()
-            ]);
-        } catch (ExceptionInterface $err) {
-            $this->getResponse()->setStatusCode($err->getCode() ?: 400);
-            return new JsonModel(['message' => $err->getMessage()]);
-        }
+        return [
+            'comprovante' => $comprovante,
+        ];
     }
-
 }

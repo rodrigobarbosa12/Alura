@@ -1,0 +1,34 @@
+<?= $this->doctype() ?>
+<html lang="pt-BR">
+    <?= $this->render('application/head/index'); ?>
+    <body class="
+        m-page--fluid
+        m--skin-
+        m-content--skin-light2
+        m-header--fixed
+        m-header--fixed-mobile
+        m-aside-left--enabled
+        m-aside-left--skin-dark
+        m-aside-left--offcanvas
+        ym-aside--offcanvas-default
+    ">
+        <div class="m-grid m-grid--hor m-grid--root m-page">
+            <?= $this->render('application/header/index') ?>
+            <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+                <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
+                    <i class="la la-close"></i>
+                </button>
+                <?= $this->render('application/sidebar/index') ?>
+                <?= $this->content ?>
+            </div>
+        </div>
+        <div
+            class="m-scroll-top m-scroll-top--skin-top"
+            data-toggle="m-scroll-top"
+            data-scroll-offset="500" data-scroll-speed="300">
+            <i class="la la-arrow-up"></i>
+        </div>
+        <?= $this->headScript() ?>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>

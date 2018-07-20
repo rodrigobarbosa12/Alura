@@ -1,0 +1,45 @@
+<?php $this->headScript()
+    ->appendFile($this->manifestPath('dist/app.js'))
+?>
+
+<body class="
+    m--skin-
+    m-header--fixed
+    m-header--fixed-mobile
+    m-aside-left--enabled
+    m-aside-left--skin-dark
+    m-aside-left--offcanvas
+    m-footer--push
+    m-aside--offcanvas-default">
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        <div class="
+            m-grid__item
+            m-grid__item--fluid
+            m-grid m-grid--ver-desktop
+            m-grid--desktop
+            m-grid--tablet-and-mobile
+            m-grid--hor-tablet-and-mobile
+            m-login
+            m-login--1
+            m-login--singin"
+            id="m_login">
+            <div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
+                <div class="m-stack m-stack--hor m-stack--desktop">
+                    <div class="m-stack__item m-stack__item--fluid">
+                        <div class="m-login__wrapper">
+                            <div class="m-login__logo">
+                                <a href="#">
+                                    <img src="/theme/dist/app/media/img/logos/logo.png" />
+                                </a>
+                            </div>
+                            <?= $this->render('login/index/sign-in', ['esqueceuSuaSenha' => 1]) ?>
+                            <?= $this->render('login/index/sign-up') ?>
+                            <?= $this->render('login/index/forget-password') ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?= $this->render('login/index/background') ?>
+        </div>
+    </div>
+</body>

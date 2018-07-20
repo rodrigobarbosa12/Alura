@@ -12,22 +12,5 @@
  */
 
 return [
-    'db' => [
-        'driver' => 'Pdo',
-        'dsn' => 'mysql:dbname=kensei;host=52.67.24.37;port=3306',
-        'username' => 'root',
-        'password' => 'amdsdl7586',
-        'driver_options' => [
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
-        ],
-    ],
-    'service_manager' => [
-        'factories' => [
-            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\Adapter',
-        ],
-        'aliases' => [
-            'adapter' => 'Zend\Db\Adapter\Adapter',
-        ],
-    ],
+    // ...
 ];
-

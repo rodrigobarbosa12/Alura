@@ -1,0 +1,211 @@
+//
+//** Grid Layout
+//
+
+@mixin m--build-grid($mode) {
+	$mode-class: '';
+	$mode-dir: '';
+
+	// Grid mode
+	@if ($mode == general) {
+		$mode-class: ":not(.m-grid--desktop):not(.m-grid--desktop-and-tablet):not(.m-grid--tablet):not(.m-grid--tablet-and-mobile):not(.m-grid--mobile)";
+	} @else {
+		$mode-class: ".m-grid--" + $mode;
+		$mode-dir: "-" + $mode;
+	}
+
+	//== Horizontal grid
+	.m-grid.m-grid--hor#{$mode-dir}#{$mode-class} {
+		display: flex;
+		flex-direction: column;
+
+		&.m-grid--root {
+			flex: 1;
+		}
+
+		> .m-grid__item {
+			flex: none;
+
+			&.m-grid__item--fluid {
+				flex: 1 0 auto;
+			}
+		}
+
+		// flex ordering
+		@for $i from 1 through 12 {
+			> .m-grid__item.m-grid__item--order-#{$mode}-#{$i} {
+				order: $i;
+			}
+		}
+	}
+
+	#legend {
+		background: white;
+		padding: 10px;
+		margin: 10px;
+		display: none;
+	}
+
+	#legend td img {
+		width: 20px;
+		height: 20px;
+	}
+
+	#legend caption b {
+		padding-right: 30px;
+		width: 100%;
+		display: inline-block;
+	}
+
+	#legend .menu-toggler {
+		position: absolute;
+		right: 10px;
+		top: 20px;
+	}
+
+	/***
+	jQuery Uniform
+	***/
+	.checker {
+		margin-top: -2px !important;
+		margin-right: 2px !important;
+	}
+
+	.checker input,
+	.radio input {
+		outline: none !important;
+	}
+
+	div.checker.disabled span,
+	div.checker.disabled.active span {
+		background-position: -152px -260px;
+	}
+
+	div.checker.disabled:hover,
+	div.radio.disabled:hover {
+		cursor: not-allowed;
+	}
+
+	div.radio,
+	div.checker {
+		margin-right: 0;
+		margin-left: 3px;
+	}
+
+	#mapa_google {
+	width: 100%;
+	height: calc(100vh - 200px); }
+
+	#mapa_google .detalhes {
+		padding: 10px 0px;
+		overflow: hidden;
+	}
+
+	#mapa_google .detalhes > ul {
+	list-style: none;
+	text-align: right;
+	margin-bottom: 20px; }
+
+	#mapa_google .detalhes > ul li {
+		display: inline;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	#mapa_google .detalhes > ul li + li {
+		border-left: 1px solid #555555;
+	}
+
+	#mapa_google .detalhes .perfil {
+		text-align: center;
+	}
+
+	#mapa_google .detalhes .perfil i[class^=icon] {
+		font-size: 40px;
+		line-height: 40px;
+	}
+
+	//== Vertical grid
+	.m-grid.m-grid--ver#{$mode-dir}#{$mode-class} {
+		display: flex;
+		flex-direction: row;
+
+		&.m-grid--root {
+			flex: 1;
+		}
+
+		> .m-grid__item {
+			flex: 0 0 auto;
+
+			&.m-grid__item--fluid {
+				flex: 1;
+			}
+		}
+
+		// flex ordering
+		@for $i from 1 through 12 {
+			> .m-grid__item.m-grid__item--order-#{$mode}-#{$i} {
+				order: $i;
+			}
+		}
+	}
+
+	//== Grid item order
+	.m-grid {
+		// horizontal items aligment
+		&.m-grid--center {
+			justify-content: center;
+		}
+
+		// vertical item alignment
+		> .m-grid__item {
+			&.m-grid__item--top {
+				align-self: flex-start;
+			}
+
+			&.m-grid__item--middle {
+				align-self: center;
+				//margin: auto;
+			}
+
+			&.m-grid__item--bottom {
+				align-self: flex-end;
+			}
+		}
+
+		// flex ordering
+		@for $i from 1 through 12 {
+			> .m-grid__item.m-grid__item--order-#{$i} {
+				order: $i;
+			}
+		}
+	}
+}
+
+//== General Mode
+@include m--build-grid(general);
+
+//== Desktop Mode
+@include desktop {
+	@include m--build-grid(desktop);
+}
+
+//== Desktop & Tablet Modes
+@include desktop-and-tablet {
+	@include m--build-grid(desktop-and-tablet);
+}
+
+//== Tablet Mode
+@include tablet {
+	@include m--build-grid(tablet);
+}
+
+//== Tablet & Mobile Modes
+@include tablet-and-mobile {
+	@include m--build-grid(tablet-and-mobile);
+}
+
+//== Mobile Mode
+@include mobile {
+	@include m--build-grid(mobile);
+}
