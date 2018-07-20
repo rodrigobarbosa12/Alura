@@ -1,0 +1,24 @@
+[libs]
+flow-typed/
+
+[ignore]
+.*/vendor/.*
+.*/nbproject/.*
+.*/config/.*
+.*/builds/.*
+.*/ci/.*
+.*/.git/.*
+.*/public/dist/.*
+.*/public/metronic/.*
+.*/public/porto/.*
+.*/module/.*
+
+[options]
+module.system=haste
+module.name_mapper='.*\.html$' -> 'TemplateHtmlStub'
+
+[lints]
+deprecated-call-syntax=off
+
+[version]
+0.76

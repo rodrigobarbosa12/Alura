@@ -1,0 +1,5 @@
+node_modules/
+public/dist/
+public/js/
+public/theme/
+public/tools/
