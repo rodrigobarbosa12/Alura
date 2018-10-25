@@ -26,24 +26,9 @@
 ?>
 		<div id="login"> 
 			<form action="#" method="post" id="form">
-				<input class="form-control" 
-					type="text" name="email"  
-					required 
-					id="email"
-					placeholder="Exemplo@email.com"
-					autocomplete="off">
-
-				<input class="form-control" 
-					type="password" 
-					name="senha" 
-					required 
-					id="senha"
-					placeholder="Digite sua senha"
-					autocomplete="off">
-
-				<input class="btn btn-primary" 
-					type="submit" 
-					value="Entrar">
+				<input class="form-control" type="text" name="email"  required id="email">
+				<input class="form-control" type="password" name="senha" required id="senha">
+				<input class="btn btn-primary" type="submit" value="Entrar">
 			</form>
 		</div>
 <?php } ?>
